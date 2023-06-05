@@ -11,7 +11,10 @@ const colors={
     black: '#000000',
     white: '#FFFFFF',
     lightGrey: '#d3d3d3',
-    lightDark:'#ccc'
+    lightDark:'#ccc',
+    lightGrey2: '#e1e8ee',
+    green:'#8fce00',
+    darkGrey:'#999999'
 }
 
 export default colors;

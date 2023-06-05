@@ -1,4 +1,4 @@
-import { View, Text,StyleSheet  } from 'react-native'
+import { View, Text,StyleSheet,Dimensions  } from 'react-native'
 import React from 'react'
 
 
@@ -9,14 +9,16 @@ import LockedIcon from 'react-native-vector-icons/Fontisto'
 import ArrowIcon from 'react-native-vector-icons/AntDesign'
 import colors from '../constants/Colors'
 
-const Header= ({title})=>{
+var { height, width } = Dimensions.get('window');
+
+const Header= ({title,type,navigation,Color})=>{
   return (
     <View style={styles.container}>
         <View style={styles.IconStyle}>
             <ArrowIcon 
-                name="arrowleft"
-                colors={colors.white}
-                size={28}
+                name={type}
+                color={Color}
+                size={30}
                 onPress={()=>{navigation.goBack()}}
             />
         </View>
@@ -32,13 +34,16 @@ export default Header;
 const styles = StyleSheet.create({
     container:{
         flexDirection:'row',
-        height:20,
-        paddingTop:20,
+        height:70,
+        padding:20,
+        marginBottom:20,
+        backgroundColor:colors.main
     },
     txtTitle:{
         color:colors.white,
         fontSize:28,
-        fontFamily:"Poppins-Bold"
+        fontFamily:"Poppins-Bold",
+        marginLeft:15
     }
 
 })
