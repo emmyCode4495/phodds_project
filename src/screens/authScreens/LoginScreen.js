@@ -21,9 +21,14 @@ import LockedIcon from 'react-native-vector-icons/Fontisto'
 import colors from '../../constants/Colors';
 import {Formik} from "formik"
 
-function RegisterScreen({navigation}) {
+function LoginScreen({navigation}) {
   return (
+      <ImageBackground
+        source={require('../../../assets/images/drawerHeaderBackground.png')}
+        style={{flex:1,width:null,height:null}}
+      >
     <View style={styles.view1}>
+         
       <View style={styles.container}>
         <View style={styles.IconStyle}>
             <ArrowIcon 
@@ -41,7 +46,7 @@ function RegisterScreen({navigation}) {
       <View style={styles.view2}>
           <ImageBackground
             style={styles.imageBackgroundStyle}
-              source={require('../../../assets/images/profile.png')}
+              source={require('../../../assets/images/loginProfile.png')}
             />
             <Text style={styles.signupTxt}>SIGN IN</Text>
         </View>
@@ -62,8 +67,8 @@ function RegisterScreen({navigation}) {
               <View style={styles.emailStyle}>
                   <TextInput 
                   placeholder='test@gmail.com'
-                  color={colors.main}
-                  placeholderTextColor={colors.lightGrey}
+                  color={colors.white}
+                  placeholderTextColor={colors.white}
                   style={styles.emailTextInput}
                   />
               </View>
@@ -83,9 +88,9 @@ function RegisterScreen({navigation}) {
 
               <View style={styles.emailStyle}>
                   <TextInput 
-                  placeholder='password'
-                  color={colors.main}
-                  placeholderTextColor={colors.lightGrey}
+                  placeholder='*********'
+                  color={colors.white}
+                  placeholderTextColor={colors.white}
                   style={styles.emailTextInput}
                   autoFocus={false}
                   />
@@ -126,22 +131,31 @@ function RegisterScreen({navigation}) {
               size={30}
               style={styles.facebookStyle}
               />
-              <Text style={{fontWeight:'bold', color:colors.lightGrey}}>|</Text>
+              <Text style={{fontWeight:'bold', fontSize:30,color:colors.lightGrey}}>|</Text>
               <Icon
                 name='google'
                 size={30}
                 style={styles.googleStyle}
               />
             </View>
+            <View style={styles.biometricStyle}>
+              <PhoneIcons
+              name="fingerprint"
+              color={colors.white}
+              size={50}
+              />
+            <Text style={styles.biometrics}>Fingerprint Login</Text>
+            </View>
             </View>
           )}
         </Formik>
         </ScrollView>     
 </View>  
+</ImageBackground>
   )
 }
 
-export default RegisterScreen;
+export default LoginScreen;
 
 const styles = StyleSheet.create({
   emailStyle:{
@@ -166,7 +180,7 @@ txtTitle:{
 },
   view1:{
     flex:1,
-    backgroundColor:colors.black,
+    
     justifyContent:'center',
     
   },
@@ -178,16 +192,17 @@ txtTitle:{
     justifyContent:"center"
   },
   imageBackgroundStyle:{
-    borderRadius:30,
-    resizeMode:'contain',
     alignItems:'center',
     justifyContent:'center',
-    width:150,
-    height:100  
+    width:200,
+
+    height:120  
   },
   signupTxt:{
     fontSize:30,
-    fontFamily:"Poppins-Bold"
+    fontFamily:"Pangolin-Regular",
+    color:colors.black,
+    fontWeight:800,
   },
   InputViews:{
     flexDirection:'row',
@@ -211,27 +226,31 @@ txtTitle:{
     marginLeft:5,
     marginRight:5,
     height:60,
-    padding:10  
+    padding:5  
   },
   email:{
     padding:0,
     marginTop:10,
-    marginLeft:5
+    marginLeft:5,
   },
   email1:{
     padding:0,
     marginTop:10,
     marginRight:12
   },
+  passwordTextInput:{
+    fontSize:18,
+    color:colors.white
+  },
   emailTextInput:{
     fontSize:18,
-    
+    fontFamily:"Roboto-Regular"
   },
   buttonStyle:{
   borderWidth:1,
   borderColor:colors.white,
   borderRadius:30,
-  backgroundColor:colors.black
+  backgroundColor:colors.white
   },
   buttonViewStyle:{
     paddingHorizontal:10,
@@ -239,12 +258,11 @@ txtTitle:{
     width:"100%",
   },
   titleViewStyle:{
-    paddingHorizontal:10,
-    paddingVertical:15,
-    borderRadius:30,
+   paddingHorizontal:5,
+   paddingVertical:7,
     fontFamily:"Poppins-Bold",
-    color:colors.white,
-    fontSize:16
+    color:colors.main,
+    fontSize:18
   },
   newUserViewStyle:{
     flexDirection:'row',
@@ -254,12 +272,13 @@ txtTitle:{
   newUserText:{
     fontFamily:"Poppins-Bold",
     fontSize:14,
+    color:colors.white,
     marginRight:5
   },
   createAccountText:{
     fontFamily:"Poppins-Bold",
     fontSize:14,
-    color:colors.main
+    color:colors.black
   },
   altViewStyle:{
     alignItems:'center',
@@ -267,7 +286,7 @@ txtTitle:{
     marginTop:25,
   },
   altTextStyle:{
-    color:colors.lightGrey,
+    color:colors.white,
     fontFamily:'Poppins-Bold',
     fontSize:20
   },
@@ -280,17 +299,29 @@ txtTitle:{
 
   },
   signInTextStyle:{
-    color:colors.lightGrey,
+    color:colors.white,
     fontFamily:'Poppins-Bold',
     fontSize:12
   },
   facebookStyle:{
     marginRight:10,
-    marginLeft:10
+    marginLeft:10,
+    color:colors.white
   },
   googleStyle:{
     marginRight:10,
-    marginLeft:10
+    marginLeft:10,
+    color:colors.white
+  },
+  biometricStyle:{
+    justifyContent:'center',
+    alignItems:"center",
+    marginTop:20
+  },
+  biometrics:{
+    fontSize:30,
+    fontFamily:'Roboto-Bold',
+    color:colors.lightGrey
   }
 
 })

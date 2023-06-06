@@ -20,9 +20,14 @@ import LockedIcon from 'react-native-vector-icons/Fontisto'
 
 import colors from '../../constants/Colors';
 import {Formik} from "formik"
+import { color } from 'react-native-elements/dist/helpers'
 
 function RegisterScreen({navigation}) {
   return (
+    <ImageBackground
+    source={require('../../../assets/images/drawerHeaderBackground.png')}
+    style={{flex:1,width:null,height:null}}
+    >
     <View style={styles.view1}>
       <View style={styles.container}>
         <View style={styles.IconStyle}>
@@ -40,10 +45,9 @@ function RegisterScreen({navigation}) {
       <ScrollView keyboardShouldPersistTaps='always'>
       <View style={styles.view2}>
       <ImageBackground
-         style={styles.imageBackgroundStyle}
-         color={colors.lightGrey}
-          source={require('../../../assets/images/profile.png')}
-        />
+            style={styles.imageBackgroundStyle}
+              source={require('../../../assets/images/loginProfile.png')}
+            />
         <Text style={styles.signupTxt}>SIGN UP</Text>
         </View>
         <Formik>
@@ -64,7 +68,7 @@ function RegisterScreen({navigation}) {
                   <TextInput 
                   placeholder='John Doe'
                   color={colors.main}
-                  placeholderTextColor={colors.lightGrey}
+                  placeholderTextColor={colors.white}
                   style={styles.emailTextInput}
                   autoFocus={true}
                   />
@@ -85,7 +89,7 @@ function RegisterScreen({navigation}) {
                   <TextInput 
                   placeholder='email'
                   color={colors.main}
-                  placeholderTextColor={colors.lightGrey}
+                  placeholderTextColor={colors.white}
                   style={styles.emailTextInput}
                   />
               </View>
@@ -104,7 +108,7 @@ function RegisterScreen({navigation}) {
               <View style={styles.emailStyle}>
                   <TextInput 
                   placeholder='+234 800 000 000'
-                  placeholderTextColor={colors.lightGrey}
+                  placeholderTextColor={colors.white}
                   keyboardType='numeric'
                   color={colors.main}
                   style={styles.emailTextInput}
@@ -127,7 +131,7 @@ function RegisterScreen({navigation}) {
                   <TextInput 
                   placeholder='password'
                   color={colors.main}
-                  placeholderTextColor={colors.lightGrey}
+                  placeholderTextColor={colors.white}
                   style={styles.emailTextInput}
                   autoFocus={false}
                   />
@@ -157,7 +161,7 @@ function RegisterScreen({navigation}) {
                   <TextInput 
                   placeholder='Confirm password'
                   color={colors.main}
-                  placeholderTextColor={colors.lightGrey}
+                  placeholderTextColor={colors.white}
                   style={styles.emailTextInput}
                   />
               </View>
@@ -181,6 +185,7 @@ function RegisterScreen({navigation}) {
         </Formik>
         </ScrollView>     
 </View>  
+</ImageBackground>
   )
 }
 
@@ -196,7 +201,7 @@ const styles = StyleSheet.create({
   container:{
     flexDirection:'row',
     marginTop:30,
-    paddingHorizontal:20,
+    paddingHorizontal:15,
 },
 headerText:{
 marginLeft:15,
@@ -209,20 +214,18 @@ txtTitle:{
   color:colors.white
 },
   view1:{
-    flex:1,
-    backgroundColor:colors.black,
     justifyContent:'center',
-    
   },
   view2:{
     flex:1,
-    paddingHorizontal:20,
-    paddingVertical:20,
+    paddingHorizontal:10,
+    paddingVertical:10,
     alignItems:'center',
     justifyContent:"center"
   },
   imageBackgroundStyle:{
     borderRadius:30,
+    marginTop:5,
     resizeMode:'contain',
     alignItems:'center',
     justifyContent:'center',
@@ -274,7 +277,7 @@ txtTitle:{
   borderWidth:1,
   borderColor:colors.white,
   borderRadius:30,
-  backgroundColor:colors. black
+  backgroundColor:colors.white
   },
   buttonViewStyle:{
     paddingHorizontal:10,
@@ -282,11 +285,10 @@ txtTitle:{
     width:"100%",
   },
   titleViewStyle:{
-    paddingHorizontal:10,
-    paddingVertical:15,
-    borderRadius:30,
+    paddingHorizontal:5,
+    paddingVertical:5,
     fontFamily:"Poppins-Bold",
-    color:colors.white,
+    color:colors.main,
     fontSize:16
   },
   newUserViewStyle:{
@@ -297,12 +299,14 @@ txtTitle:{
   newUserText:{
     fontFamily:"Poppins-Bold",
     fontSize:14,
-    marginRight:5
+    marginRight:5,
+    color:colors.white
   },
   createAccountText:{
     fontFamily:"Poppins-Bold",
     fontSize:14,
-    color:colors.main
+    color:colors.black,
+    fontWeight:800
   }
 
 })
