@@ -24,16 +24,12 @@ import { color } from 'react-native-elements/dist/helpers'
 
 function RegisterScreen({navigation}) {
   return (
-    <ImageBackground
-    source={require('../../../assets/images/drawerHeaderBackground.png')}
-    style={{flex:1,width:null,height:null}}
-    >
     <View style={styles.view1}>
       <View style={styles.container}>
         <View style={styles.IconStyle}>
             <ArrowIcon 
                 name="arrowleft"
-                color={colors.white}
+                color={colors.main}
                 size={30}
                 onPress={()=>{navigation.goBack()}}
             />
@@ -46,11 +42,10 @@ function RegisterScreen({navigation}) {
       <View style={styles.view2}>
       <ImageBackground
             style={styles.imageBackgroundStyle}
-              source={require('../../../assets/images/loginProfile.png')}
+              source={require('../../../assets/images/phodds.png')}
             />
-        <Text style={styles.signupTxt}>SIGN UP</Text>
         </View>
-        <Formik>
+        <Formik>                                                                                                                                                                                
           {(props)=>(
             <View>
 
@@ -58,7 +53,7 @@ function RegisterScreen({navigation}) {
               <View>
                 <UserIcon
                   name="user"
-                  color={colors.white}
+                  color={colors.main}
                   size={24}
                   style={styles.email}
                 />
@@ -68,7 +63,7 @@ function RegisterScreen({navigation}) {
                   <TextInput 
                   placeholder='John Doe'
                   color={colors.main}
-                  placeholderTextColor={colors.white}
+                  placeholderTextColor={colors.main}
                   style={styles.emailTextInput}
                   autoFocus={true}
                   />
@@ -79,7 +74,7 @@ function RegisterScreen({navigation}) {
               <View>
                 <Icon
                   name="mail"
-                  color={colors.white}
+                  color={colors.main}
                   size={24}
                   style={styles.email}
                 />
@@ -89,7 +84,7 @@ function RegisterScreen({navigation}) {
                   <TextInput 
                   placeholder='email'
                   color={colors.main}
-                  placeholderTextColor={colors.white}
+                  placeholderTextColor={colors.main}
                   style={styles.emailTextInput}
                   />
               </View>
@@ -99,7 +94,7 @@ function RegisterScreen({navigation}) {
               <View>
                 <PhoneIcons
                   name="phone-enabled"
-                  color={colors.white}
+                  color={colors.main}
                   size={24}
                   style={styles.email}
                 />
@@ -108,7 +103,7 @@ function RegisterScreen({navigation}) {
               <View style={styles.emailStyle}>
                   <TextInput 
                   placeholder='+234 800 000 000'
-                  placeholderTextColor={colors.white}
+                  placeholderTextColor={colors.main}
                   keyboardType='numeric'
                   color={colors.main}
                   style={styles.emailTextInput}
@@ -121,7 +116,7 @@ function RegisterScreen({navigation}) {
               <View>
                 <LockedIcon
                   name="locked"
-                  color={colors.white}
+                  color={colors.main}
                   size={24}
                   style={styles.email}
                 />
@@ -131,27 +126,27 @@ function RegisterScreen({navigation}) {
                   <TextInput 
                   placeholder='password'
                   color={colors.main}
-                  placeholderTextColor={colors.white}
+                  placeholderTextColor={colors.main}
                   style={styles.emailTextInput}
                   autoFocus={false}
                   />
               </View>
 
-              <View>
+              {/* <View>
                 <PhoneIcons
                   name="visibility-off"
-                  color={colors.white}
+                  color={colors.main}
                   size={24}
                   style={styles.email1}
                 />
-              </View>
+              </View> */}
             </View>
 
             <View style={styles.InputViews}>
               <View>
                 <LockedIcon
                   name="locked"
-                  color={colors.white}
+                  color={colors.main}
                   size={24}
                   style={styles.email}
                 />
@@ -161,7 +156,7 @@ function RegisterScreen({navigation}) {
                   <TextInput 
                   placeholder='Confirm password'
                   color={colors.main}
-                  placeholderTextColor={colors.white}
+                  placeholderTextColor={colors.main}
                   style={styles.emailTextInput}
                   />
               </View>
@@ -185,14 +180,14 @@ function RegisterScreen({navigation}) {
         </Formik>
         </ScrollView>     
 </View>  
-</ImageBackground>
+
   )
 }
 
 export default RegisterScreen;
 
 const styles = StyleSheet.create({
-  emailStyle:{
+   emailStyle:{
     marginTop:1,
     marginLeft:5,
     maxWidth:"65%",
@@ -211,7 +206,7 @@ marginTop:4,
 txtTitle:{
   fontSize:24,
   fontFamily:"Poppins-Bold",
-  color:colors.white
+  color:colors.main
 },
   view1:{
     justifyContent:'center',
@@ -229,8 +224,8 @@ txtTitle:{
     resizeMode:'contain',
     alignItems:'center',
     justifyContent:'center',
-    width:150,
-    height:100  
+    width:200,
+    height:180  
   },
   signupTxt:{
     fontSize:30,
@@ -239,7 +234,7 @@ txtTitle:{
   InputViews:{
     flexDirection:'row',
     borderWidth:1,
-    borderColor:colors.white,
+    borderColor:colors.main,
     borderRadius:25,
     paddingLeft:5,
     marginTop:20,
@@ -249,13 +244,12 @@ txtTitle:{
   },
   InputViews1:{
     flexDirection:'row',
-    justifyContent:'space-between',
     borderWidth:1,
-    borderColor:colors.white,
+    borderColor:colors.main,
     borderRadius:25,
     paddingLeft:5,
     marginTop:20,
-    marginLeft:5,
+    marginLeft:10,
     marginRight:5,
     height:60,
     padding:10  
@@ -275,9 +269,9 @@ txtTitle:{
   },
   buttonStyle:{
   borderWidth:1,
-  borderColor:colors.white,
+  borderColor:colors.main,
   borderRadius:30,
-  backgroundColor:colors.white
+  backgroundColor:colors.main
   },
   buttonViewStyle:{
     paddingHorizontal:10,
@@ -288,7 +282,7 @@ txtTitle:{
     paddingHorizontal:5,
     paddingVertical:5,
     fontFamily:"Poppins-Bold",
-    color:colors.main,
+    color:colors.white,
     fontSize:16
   },
   newUserViewStyle:{
@@ -300,12 +294,12 @@ txtTitle:{
     fontFamily:"Poppins-Bold",
     fontSize:14,
     marginRight:5,
-    color:colors.white
+    color:colors.darkGrey
   },
   createAccountText:{
     fontFamily:"Poppins-Bold",
     fontSize:14,
-    color:colors.black,
+    color:colors.main,
     fontWeight:800
   }
 

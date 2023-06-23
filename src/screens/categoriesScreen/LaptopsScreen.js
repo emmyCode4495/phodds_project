@@ -20,8 +20,8 @@ export default function LaptopsScreen() {
         {
           laptopData.map((dataOutput,item)=>{
             return(
-              <TouchableOpacity key={item.key}>
-              <View style={styles.laptopDataStyle}>
+              <TouchableOpacity>
+              <View style={styles.laptopDataStyle} key={item.id}>
                 <Text style={styles.laptopDataText}>{dataOutput.title}</Text>
                 <Icons 
                   name="ios-chevron-forward"

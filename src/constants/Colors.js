@@ -14,7 +14,8 @@ const colors={
     lightDark:'#ccc',
     lightGrey2: '#e1e8ee',
     green:'#8fce00',
-    darkGrey:'#999999'
+    darkGrey:'#999999',
+    red:'#FF0000'
 }
 
 export default colors;

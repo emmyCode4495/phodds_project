@@ -27,9 +27,9 @@ export default function AndroidScreen() {
           androidData.map((dataOutput,item)=>{
             return(
               
-              <TouchableOpacity key={item.key}>
+              <TouchableOpacity>
                
-              <View style={styles.laptopDataStyle}>
+              <View style={styles.laptopDataStyle} key={item.id}>
                 <Text style={styles.laptopDataText}>{dataOutput.title}</Text>
                 <Icons 
                   name="ios-chevron-forward"

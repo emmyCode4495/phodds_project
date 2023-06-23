@@ -57,7 +57,7 @@ const [switchMode, setSwitchMode] = useState(true)
       </View>
       
       </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView showsVerticalScrr ollIndicator={false}>
       <View style={styles.categoryViewStyle}>
         <Text style={styles.categoryStyle}>Categories</Text>
       </View>
@@ -68,21 +68,22 @@ const [switchMode, setSwitchMode] = useState(true)
 
       <View>
         <FlatList
-        horizontal={false}
+        horizontal={false} 
           data={TrendingData}
           keyExtractor={(item,index)=>index.toString()}
-          
-          renderItem={({item})=>(
+          renderItem={({item,index})=>(
             <View>
               <CardsDisplay
                 image={item.images}
                 productName={item.productName}
                 amount={item.amount}
+                navigation={navigation}
                 description={item.description}
                 location={item.location}
                 usedState={item.usedState}
                 stockAvailable={item.stockAvailable}
                 rating={item.rating}
+                onPressCard={()=>{navigation.navigate("itemDetail",{id:index,product:item.productName})}}
                 />
                 
             </View>

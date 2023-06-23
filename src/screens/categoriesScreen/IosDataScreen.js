@@ -19,8 +19,8 @@ export default function IosDataScreen() {
         {
           iosData.map((dataOutput,item)=>{
             return(
-              <TouchableOpacity key={item.key}>
-              <View style={styles.iosDataStyle}>
+              <TouchableOpacity>
+              <View style={styles.iosDataStyle} key={item.id}>
                 <Text style={styles.iosDataText}>{dataOutput.title}</Text>
                 <Icons 
                   name="ios-chevron-forward"

@@ -7,6 +7,23 @@ export const TrendingData =
         usedState: "used",
         stockAvailable:10,
         rating:5,
+        specificationData:{
+                Brand:'Apple',
+                Type:'ios',
+                Model:'Iphone 14 Pro max',
+                secondCondition:'No cracks',
+                Sim: 'single Nano-sim',
+                displayType:'Super Retina XDR display',
+                screenSize:'6.7‑inch (diagonal) all‑screen OLED display',
+                resolution:'2796‑by‑1290-pixel resolution at 460 ppi',
+                internalStorage:'128 GB',
+                CardSlot:'No',
+                rearCamera:'48MP Main',
+                selfieCamera:'12MP Ultra Wide',
+                color:'Dark grey',
+                battery:'5,000'
+
+        },
         description:"Lorem Ipsum is simply dummy text \nof the printing and industry.\nding versions of Lorem Ipsum",
         id:0},
 

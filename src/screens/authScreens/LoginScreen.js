@@ -11,6 +11,7 @@ import { Button } from 'react-native-elements'
 
 import Header from '../../components/header'
 
+
 import ArrowIcon from 'react-native-vector-icons/AntDesign'
 //Imports for the Icons used
 import Icon from 'react-native-vector-icons/AntDesign'
@@ -18,22 +19,19 @@ import UserIcon from 'react-native-vector-icons/Entypo'
 import PhoneIcons from 'react-native-vector-icons/MaterialIcons'
 import LockedIcon from 'react-native-vector-icons/Fontisto'
 
-import colors from '../../constants/Colors';
+import colors from '../../constants/Colors';                                                                    
 import {Formik} from "formik"
 
 function LoginScreen({navigation}) {
   return (
-      <ImageBackground
-        source={require('../../../assets/images/drawerHeaderBackground.png')}
-        style={{flex:1,width:null,height:null}}
-      >
+     
     <View style={styles.view1}>
          
       <View style={styles.container}>
         <View style={styles.IconStyle}>
             <ArrowIcon 
                 name="arrowleft"
-                color={colors.white}
+                color={colors.main}
                 size={30}
                 onPress={()=>{navigation.goBack()}}
             />
@@ -46,9 +44,8 @@ function LoginScreen({navigation}) {
       <View style={styles.view2}>
           <ImageBackground
             style={styles.imageBackgroundStyle}
-              source={require('../../../assets/images/loginProfile.png')}
+              source={require('../../../assets/images/phodds.png')}
             />
-            <Text style={styles.signupTxt}>SIGN IN</Text>
         </View>
         <Formik>
           {(props)=>(
@@ -58,7 +55,7 @@ function LoginScreen({navigation}) {
               <View>
                 <Icon
                   name="mail"
-                  color={colors.white}
+                  color={colors.main}
                   size={24}
                   style={styles.email}
                 />
@@ -67,8 +64,8 @@ function LoginScreen({navigation}) {
               <View style={styles.emailStyle}>
                   <TextInput 
                   placeholder='test@gmail.com'
-                  color={colors.white}
-                  placeholderTextColor={colors.white}
+                  color={colors.main}
+                  placeholderTextColor={colors.main}
                   style={styles.emailTextInput}
                   />
               </View>
@@ -80,7 +77,7 @@ function LoginScreen({navigation}) {
               <View>
                 <LockedIcon
                   name="locked"
-                  color={colors.white}
+                  color={colors.main}
                   size={24}
                   style={styles.email}
                 />
@@ -89,20 +86,20 @@ function LoginScreen({navigation}) {
               <View style={styles.emailStyle}>
                   <TextInput 
                   placeholder='*********'
-                  color={colors.white}
-                  placeholderTextColor={colors.white}
+                  color={colors.main}
+                  placeholderTextColor={colors.main}
                   style={styles.emailTextInput}
                   autoFocus={false}
                   />
               </View>
-              <View>
+              {/* <View>
                 <PhoneIcons
                   name="visibility-off"
-                  color={colors.white}
+                  color={colors.main}
                   size={24}
                   style={styles.email1}
                 />
-              </View>
+              </View> */}
             </View>
             
 
@@ -111,7 +108,7 @@ function LoginScreen({navigation}) {
             title="SIGN IN"
             buttonStyle={styles.buttonStyle}
             titleStyle={styles.titleViewStyle}
-            onPress={()=>navigation.navigate("Home")}
+            onPress={()=>navigation.navigate("drawerNav")}
             />
             </View>
             <View style={styles.newUserViewStyle}>
@@ -131,7 +128,7 @@ function LoginScreen({navigation}) {
               size={30}
               style={styles.facebookStyle}
               />
-              <Text style={{fontWeight:'bold', fontSize:30,color:colors.lightGrey}}>|</Text>
+              <Text style={{fontWeight:'bold', fontSize:30,color:colors.black}}>|</Text>
               <Icon
                 name='google'
                 size={30}
@@ -141,7 +138,7 @@ function LoginScreen({navigation}) {
             <View style={styles.biometricStyle}>
               <PhoneIcons
               name="fingerprint"
-              color={colors.white}
+              color={colors.main}
               size={50}
               />
             <Text style={styles.biometrics}>Fingerprint Login</Text>
@@ -151,7 +148,6 @@ function LoginScreen({navigation}) {
         </Formik>
         </ScrollView>     
 </View>  
-</ImageBackground>
   )
 }
 
@@ -176,7 +172,7 @@ marginTop:4,
 txtTitle:{
   fontSize:24,
   fontFamily:"Poppins-Bold",
-  color:colors.white
+  color:colors.main
 },
   view1:{
     flex:1,
@@ -195,8 +191,7 @@ txtTitle:{
     alignItems:'center',
     justifyContent:'center',
     width:200,
-
-    height:120  
+    height:180  
   },
   signupTxt:{
     fontSize:30,
@@ -207,7 +202,7 @@ txtTitle:{
   InputViews:{
     flexDirection:'row',
     borderWidth:1,
-    borderColor:colors.white,
+    borderColor:colors.main,
     borderRadius:25,
     paddingLeft:5,
     marginTop:20,
@@ -217,9 +212,9 @@ txtTitle:{
   },
   InputViews1:{
     flexDirection:'row',
-    justifyContent:'space-between',
+    // justifyContent:'space-between',
     borderWidth:1,
-    borderColor:colors.white,
+    borderColor:colors.main,
     borderRadius:25,
     paddingLeft:5,
     marginTop:20,
@@ -246,11 +241,12 @@ txtTitle:{
     fontSize:18,
     fontFamily:"Roboto-Regular"
   },
+
   buttonStyle:{
   borderWidth:1,
-  borderColor:colors.white,
+  borderColor:colors.main,
   borderRadius:30,
-  backgroundColor:colors.white
+  backgroundColor:colors.main
   },
   buttonViewStyle:{
     paddingHorizontal:10,
@@ -261,7 +257,7 @@ txtTitle:{
    paddingHorizontal:5,
    paddingVertical:7,
     fontFamily:"Poppins-Bold",
-    color:colors.main,
+    color:colors.white,
     fontSize:18
   },
   newUserViewStyle:{
@@ -272,7 +268,7 @@ txtTitle:{
   newUserText:{
     fontFamily:"Poppins-Bold",
     fontSize:14,
-    color:colors.white,
+    color:colors.main,
     marginRight:5
   },
   createAccountText:{
@@ -286,7 +282,7 @@ txtTitle:{
     marginTop:25,
   },
   altTextStyle:{
-    color:colors.white,
+    color:colors.darkGrey,
     fontFamily:'Poppins-Bold',
     fontSize:20
   },
@@ -299,19 +295,19 @@ txtTitle:{
 
   },
   signInTextStyle:{
-    color:colors.white,
+    color:colors.darkGrey,
     fontFamily:'Poppins-Bold',
     fontSize:12
   },
   facebookStyle:{
     marginRight:10,
     marginLeft:10,
-    color:colors.white
+    color:colors.main
   },
   googleStyle:{
     marginRight:10,
     marginLeft:10,
-    color:colors.white
+    color:colors.main
   },
   biometricStyle:{
     justifyContent:'center',
@@ -321,7 +317,7 @@ txtTitle:{
   biometrics:{
     fontSize:30,
     fontFamily:'Roboto-Bold',
-    color:colors.lightGrey
+    color:colors.black
   }
 
 })

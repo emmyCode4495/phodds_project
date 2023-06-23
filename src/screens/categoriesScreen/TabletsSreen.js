@@ -20,8 +20,8 @@ export default function TabletsScreen() {
 {
           tabData.map((dataOutput,item)=>{
             return(
-              <TouchableOpacity key={item.key}>
-              <View style={styles.tabDataStyle}>
+              <TouchableOpacity>
+              <View style={styles.tabDataStyle} key={item.id}>
                 <Text style={styles.tabDataText}>{dataOutput.title}</Text>
                 <Icons 
                   name="ios-chevron-forward"

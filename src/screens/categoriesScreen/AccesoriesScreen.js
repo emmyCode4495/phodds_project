@@ -21,7 +21,7 @@ export default function AccessoriesScreen() {
           accesoriesData.map((dataOutput,item)=>{
             return(
               <TouchableOpacity key={item.key}>
-              <View style={styles.accessoriesDataStyle}>
+              <View style={styles.accessoriesDataStyle} key={item.id}>
                 <Text style={styles.accessoriesDataText}>{dataOutput.title}</Text>
                 <Icons 
                   name="ios-chevron-forward"

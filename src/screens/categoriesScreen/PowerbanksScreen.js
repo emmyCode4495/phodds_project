@@ -20,8 +20,8 @@ export default function PowerbanksScreen() {
 {
           powerbankData.map((dataOutput,item)=>{
             return(
-              <TouchableOpacity key={item.key}>
-              <View style={styles.powerbankDataStyle}>
+              <TouchableOpacity>
+              <View style={styles.powerbankDataStyle} key={item.id}>
                 <Text style={styles.powerbankDataText}>{dataOutput.title}</Text>
                 <Icons 
                   name="ios-chevron-forward"

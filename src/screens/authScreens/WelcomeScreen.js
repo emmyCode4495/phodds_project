@@ -8,19 +8,21 @@ import { View,
 
 import colors from '../../constants/Colors'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 const {height} = Dimensions.get("window")
 
 function WelcomeScreen() {
+    const navigation = useNavigation()
   return (
     <SafeAreaView style={styles.container}>
         <View >
             <ImageBackground
-            style={{
+            style={{                                                                                                                                                                                                                                                    
                 height: height/1.8
             }}
             resizeMode='contain'
-            source={require("../../../assets/images/newWelcomePg.png")}
+            source={require("../../../assets/images/phodds.png")}
             />
             <View style={{marginBottom:30}}>
                 <Text style={styles.captionText}>HOME OF QUALITY GADGETS.</Text>
@@ -28,12 +30,18 @@ function WelcomeScreen() {
             </View>
         </View>
             <View style={styles.touchableOpacityViewStyle}>
-                <TouchableOpacity style={styles.touchOpacityStyle}>
+                <TouchableOpacity 
+                style={styles.touchOpacityStyle}
+                onPress={()=>navigation.navigate("Login")}
+                >
                     <Text style={styles.loginTextStyle}>LOGIN</Text>
                 </TouchableOpacity>
             
 
-                <TouchableOpacity style={styles.touchOpacityStyle1}>
+                <TouchableOpacity 
+                style={styles.touchOpacityStyle1}
+                onPress={()=>navigation.navigate("Register")}
+                >
                     <Text style={styles.registerTextStyle}>REGISTER</Text>
                 </TouchableOpacity>
             </View>
@@ -94,4 +102,4 @@ registerTextStyle:{
     color:colors.main,
     fontSize:15  
 },
-})
+})        

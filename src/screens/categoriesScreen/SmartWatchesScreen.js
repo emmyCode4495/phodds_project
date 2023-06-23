@@ -20,8 +20,8 @@ export default function SmartWatchesScreen() {
 {
           smartwatchData.map((dataOutput,item)=>{
             return(
-              <TouchableOpacity key={item.key}>
-              <View style={styles.smartwatchDataStyle}>
+              <TouchableOpacity>
+              <View style={styles.smartwatchDataStyle} key={item.id}>
                 <Text style={styles.smartwatchDataText}>{dataOutput.title}</Text>
                 <Icons 
                   name="ios-chevron-forward"

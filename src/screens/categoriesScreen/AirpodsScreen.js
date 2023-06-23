@@ -20,8 +20,8 @@ export default function AirpodsScreen() {
 {
           airpodsData.map((dataOutput,item)=>{
             return(
-              <TouchableOpacity key={item.key}>
-              <View style={styles.airpodsDataStyle}>
+              <TouchableOpacity>
+              <View style={styles.airpodsDataStyle} key={item.id}>
                 <Text style={styles.airpodsDataText}>{dataOutput.title}</Text>
                 <Icons 
                   name="ios-chevron-forward"

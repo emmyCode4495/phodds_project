@@ -10,6 +10,8 @@ import Icons from 'react-native-vector-icons/FontAwesome';
 import Rating from './Rating';
 import colors from '../constants/Colors'
 import { TrendingData } from '../constants/data';
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function CardsDisplay({
     productName,
@@ -21,11 +23,18 @@ export default function CardsDisplay({
     amount,
     description,
     stockAvailable,
-    value
+    onPressCard,
+    value,
+    navigation,
+    route
+    
 }) {
+ 
   return (
 <View style={{backgroundColor:colors.lightGrey2}}>
-    <TouchableOpacity>
+    <TouchableOpacity
+    
+    onPress={onPressCard}>                                                                                      
         <View style={styles.mainView}>
             <View style={styles.container}>
                 <Image
@@ -114,7 +123,7 @@ const styles = StyleSheet.create({
     flexDirection:'row'
   },
   amount:{
-    color:colors.green,
+    color:colors.main,
     fontSize:12,
     fontFamily:"Poppins-Regular",
     fontWeight:800

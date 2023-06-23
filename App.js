@@ -10,6 +10,10 @@ import AppStack from '../phodds/src/navigation/AppStack'
 import AuthStack from '../phodds/src/navigation/AuthStack'
 import { NavigationContainer } from '@react-navigation/native';
 import RootNavigator from '../phodds/src/navigation/RootNavigator'
+import WelcomeScreen from './src/screens/authScreens/WelcomeScreen';
+import ProfileScreen from '../phodds/src/screens/mainScreen/ProfileScreen'
+import MessagesScreen from './src/screens/mainScreen/MessagesScreen';
+import VendorScreen from './src/screens/authScreens/VendorScreen';
 
 export default function App(){
     return(
@@ -18,7 +22,7 @@ export default function App(){
         barStyle="light content"
         backgroundColor= {colors.main}/>
         {/* <RootNavigator /> */}
-        <LoginScreen/>
+        <VendorScreen/>
         </View>
     )
 }
