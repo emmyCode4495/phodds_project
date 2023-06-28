@@ -21,7 +21,7 @@ export default function App(){
         barStyle="light-content"
         backgroundColor= {colors.main}/>
         <RootNavigator />
-        {/* <HomeScreenCards/> */}
+        <HomeScreenCards/>
         {/* <VendorScreen/> */}
         </View>
         // </NavigationContainer>
