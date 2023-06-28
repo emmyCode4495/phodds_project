@@ -3,7 +3,7 @@ import { View,
           StyleSheet, 
           TouchableOpacity,
           Dimensions,
-          ScrollView, FlatList,Image
+          ScrollView, FlatList,Image, SafeAreaView
          } from 'react-native'
 import React,{useState} from 'react'
 
@@ -16,6 +16,7 @@ import HomeScreenCards from '../../components/HomeScreenCards';
 import CardsDisplay from '../../components/CardsDisplay';
 import Rating from '../../components/Rating';
 
+import { fontPixel,heightPixel, widthPixel,pixelSizeHorizontal,pixelSizeVertical } from '../../constants/dimensions'
 
 var { height, width } = Dimensions.get('window');
 
@@ -23,7 +24,7 @@ export default function HomeScreen({navigation}){
 const [switchMode, setSwitchMode] = useState(true)
 
   return (
-    <View style={styles.container}>  
+    <SafeAreaView style={styles.container}>  
       <SnackDrawerBar navigation={navigation}/>
 
       <View style={styles.mainView}>
@@ -57,7 +58,7 @@ const [switchMode, setSwitchMode] = useState(true)
       </View>
       
       </View>
-      <ScrollView showsVerticalScrr ollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.categoryViewStyle}>
         <Text style={styles.categoryStyle}>Categories</Text>
       </View>
@@ -92,7 +93,7 @@ const [switchMode, setSwitchMode] = useState(true)
         
       </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   )
 }
  
@@ -103,11 +104,11 @@ const styles = StyleSheet.create({
   },
   brandNewText:{
     color:colors.main,
-    fontFamily:"Poppins-bold"
+    fontFamily:"Poppins-Bold"
   },
   fairlyUsedText:{
     color:colors.main,
-    fontFamily:"Poppins-bold"
+    fontFamily:"Poppins-Bold"
   },
   mainView:{
     flexDirection:'row',
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
     borderWidth:1,
     borderRadius:30,
     padding:10,
-    width:width,
+    width:widthPixel(width),
     maxWidth:"45%",
     justifyContent:"center",
     alignItems:"center",
@@ -134,17 +135,17 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     alignItems:"center",
     marginRight:15,
-    width:width
+    width:widthPixel(width)
   },
   categoryStyle:{
     color:colors.white,
-    fontSize:25,
+    fontSize:fontPixel(25),
     fontFamily:"Poppins-Bold"
   },
   categoryViewStyle:{
     backgroundColor:colors.main,
-    paddingHorizontal:12,
-    paddingVertical:12,
+    paddingHorizontal:pixelSizeHorizontal(12),
+    paddingVertical:pixelSizeVertical(12),
     marginLeft:12,
     marginRight:12,
     marginTop:10,

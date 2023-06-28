@@ -15,7 +15,9 @@ const colors={
     lightGrey2: '#e1e8ee',
     green:'#8fce00',
     darkGrey:'#999999',
-    red:'#FF0000'
+    red:'#FF0000',
+    facebookBlue:'#4267B2',
+    googleRed: '#DB4437'
 }
 
 export default colors;

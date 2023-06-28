@@ -5,13 +5,13 @@ import { StyleSheet,
 import React from 'react'
 
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import Icons from 'react-native-vector-icons/FontAwesome';
 
 import Rating from './Rating';
 import colors from '../constants/Colors'
 import { TrendingData } from '../constants/data';
 import { useNavigation } from '@react-navigation/native';
 
+import { fontPixel,heightPixel, widthPixel,pixelSizeHorizontal,pixelSizeVertical } from '../constants/dimensions'
 
 export default function CardsDisplay({
     productName,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   },
   productName:{
     color:colors.black,
-    fontSize:12,
+    fontSize:fontPixel(10),
     fontFamily:"Poppins-Regular",
     fontWeight:800
 
@@ -124,14 +124,14 @@ const styles = StyleSheet.create({
   },
   amount:{
     color:colors.main,
-    fontSize:12,
+    fontSize:fontPixel(12),
     fontFamily:"Poppins-Regular",
     fontWeight:800
   },
   
   imageStyle:{
-    width:200,
-    height:200,
+    width:widthPixel(200),
+    height:Platform.OS === 'ios'?heightPixel(270):heightPixel(240),
     borderBottomLeftRadius:20,
     borderTopLeftRadius:20  
   },
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   
   description:{
     color:colors.black,
-    fontSize:10,
+    fontSize:fontPixel(10),
     fontFamily:'Roboto-bold',
     alignItems:'center',
     fontWeight:800,
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   },
   locationText:{
     color:colors.darkGrey,
-    fontSize:16,
+    fontSize:fontPixel(16),
     fontFamily:'Roboto-Bold',
     textTransform:'capitalize'
   },
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     usedStateStyle:{
         color:colors.darkGrey,
         fontFamily:'Roboto-Bold',
-        fontSize:18,
+        fontSize:fontPixel(18),
         fontWeight:800
     },
     RatingView:{
@@ -196,8 +196,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:"center",
         marginTop:15,
-        marginRight:20,
-        
+        marginRight:20,      
     },
     ratingText:{
         color:colors.main

@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         fontSize:18
     },
     profileNameText1:{
-        fontFamily:"Roboto-Medium",
+        fontFamily:"Roboto-Bold",
         color:colors.lightGrey,
         fontSize:14,
         fontWeight:800,
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
         color:colors.black, 
         marginLeft:10,
         fontSize:20, 
-        fontFamily:'Roboto-Medium'
+        fontFamily:'Roboto-Regular'
     },
     bottomDrawerStyles1:{
         padding:20,

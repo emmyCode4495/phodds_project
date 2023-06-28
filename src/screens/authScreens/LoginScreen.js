@@ -5,11 +5,14 @@ import { View,
   Text,
   ScrollView,
   TextInput,
-  TouchableOpacity, } from 'react-native'
+  TouchableOpacity,
+  SafeAreaView, } from 'react-native'
 import React from 'react'
 import { Button } from 'react-native-elements'
 
 import Header from '../../components/header'
+
+import { fontPixel,heightPixel, widthPixel,pixelSizeHorizontal,pixelSizeVertical } from '../../constants/dimensions'
 
 
 import ArrowIcon from 'react-native-vector-icons/AntDesign'
@@ -25,7 +28,7 @@ import {Formik} from "formik"
 function LoginScreen({navigation}) {
   return (
      
-    <View style={styles.view1}>
+    <SafeAreaView style={styles.view1}>
          
       <View style={styles.container}>
         <View style={styles.IconStyle}>
@@ -102,7 +105,9 @@ function LoginScreen({navigation}) {
               </View> */}
             </View>
             
-
+              <View style={styles.changePasswordView}>
+                <Text style={styles.forgotPasswordText}>Forgot password?</Text>
+              </View>
             <View style={styles.buttonViewStyle}>
             <Button
             title="SIGN IN"
@@ -135,19 +140,24 @@ function LoginScreen({navigation}) {
                 style={styles.googleStyle}
               />
             </View>
-            <View style={styles.biometricStyle}>
+           
+            {
+               Platform.OS === "ios" ? <></>:
+              <View style={styles.biometricStyle}>
               <PhoneIcons
               name="fingerprint"
               color={colors.main}
-              size={50}
-              />
-            <Text style={styles.biometrics}>Fingerprint Login</Text>
+              size={50}/> 
+              <Text style={styles.biometrics}>Fingerprint Login</Text>
+              </View>  
+            }
+            
             </View>
-            </View>
+          
           )}
         </Formik>
         </ScrollView>     
-</View>  
+</SafeAreaView>  
   )
 }
 
@@ -155,13 +165,13 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
   emailStyle:{
-    marginTop:1,
-    marginLeft:5,
+    marginTop:Platform.OS === "ios" ? 12:0.2,
+    marginLeft:Platform.OS === "ios" ? 10:0.5,
     maxWidth:"65%"
   },
   container:{
     flexDirection:'row',
-    marginTop:30,
+    marginTop:Platform.OS == 'ios'?10:20,
     paddingHorizontal:20,
 },
 headerText:{
@@ -176,26 +186,34 @@ txtTitle:{
 },
   view1:{
     flex:1,
-    
     justifyContent:'center',
     
   },
   view2:{
     flex:1,
-    paddingHorizontal:20,
-    paddingVertical:20,
+    paddingHorizontal:pixelSizeHorizontal(20),
+    paddingVertical:pixelSizeVertical(20),
     alignItems:'center',
     justifyContent:"center"
+  },
+
+  changePasswordView:{
+    marginTop:Platform.OS == 'ios'?10:5,
+    marginLeft:Platform.OS == 'ios'?15:15
+  },
+  forgotPasswordText:{
+    fontSize:fontPixel(16),
+    color:colors.darkGrey
   },
   imageBackgroundStyle:{
     alignItems:'center',
     justifyContent:'center',
-    width:200,
-    height:180  
+    width:widthPixel(200),
+    height:heightPixel(190)  
   },
   signupTxt:{
-    fontSize:30,
-    fontFamily:"Pangolin-Regular",
+    fontSize:fontPixel(30),
+    fontFamily:"Poppins-Bold",
     color:colors.black,
     fontWeight:800,
   },
@@ -208,7 +226,7 @@ txtTitle:{
     marginTop:20,
     marginLeft:5,
     marginRight:5,
-    height:60  
+    height:heightPixel(60)  
   },
   InputViews1:{
     flexDirection:'row',
@@ -220,12 +238,12 @@ txtTitle:{
     marginTop:20,
     marginLeft:5,
     marginRight:5,
-    height:60,
+    height:heightPixel(60),
     padding:5  
   },
   email:{
     padding:0,
-    marginTop:10,
+    marginTop:Platform.OS === "ios" ? 8:12,
     marginLeft:5,
   },
   email1:{
@@ -234,12 +252,12 @@ txtTitle:{
     marginRight:12
   },
   passwordTextInput:{
-    fontSize:18,
+    fontSize:Platform.OS === "ios" ? fontPixel(20) : fontPixel(20),
     color:colors.white
   },
   emailTextInput:{
-    fontSize:18,
-    fontFamily:"Roboto-Regular"
+    fontSize:Platform.OS === "ios" ? fontPixel(20) : fontPixel(20),
+    fontFamily:"Roboto-Bold"
   },
 
   buttonStyle:{
@@ -249,16 +267,16 @@ txtTitle:{
   backgroundColor:colors.main
   },
   buttonViewStyle:{
-    paddingHorizontal:10,
-    paddingVertical:20,
-    width:"100%",
+    paddingHorizontal:pixelSizeHorizontal(10),
+    paddingVertical:pixelSizeVertical(20),
+    width:widthPixel(400),
   },
   titleViewStyle:{
-   paddingHorizontal:5,
-   paddingVertical:7,
+   paddingHorizontal:pixelSizeHorizontal(5),
+   paddingVertical:pixelSizeVertical(7),
     fontFamily:"Poppins-Bold",
     color:colors.white,
-    fontSize:18
+    fontSize:Platform.OS === "ios" ? fontPixel(18) : fontPixel(20),
   },
   newUserViewStyle:{
     flexDirection:'row',
@@ -267,52 +285,52 @@ txtTitle:{
   },
   newUserText:{
     fontFamily:"Poppins-Bold",
-    fontSize:14,
+    fontSize:Platform.OS === "ios" ? fontPixel(15) : fontPixel(15),
     color:colors.main,
     marginRight:5
   },
   createAccountText:{
     fontFamily:"Poppins-Bold",
-    fontSize:14,
+    fontSize:Platform.OS === "ios" ? fontPixel(15) : fontPixel(15),
     color:colors.black
   },
   altViewStyle:{
     alignItems:'center',
     justifyContent:'center',
-    marginTop:25,
+    marginTop:Platform.OS === "ios" ? 20 : 25,
   },
   altTextStyle:{
     color:colors.darkGrey,
     fontFamily:'Poppins-Bold',
-    fontSize:20
+    fontSize:Platform.OS === "ios" ? fontPixel(20) : fontPixel(20),
   },
   signInWithViewStyle:{
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'center',
-    paddingVertical:10,
-    paddingHorizontal:10,
+    paddingVertical:Platform.OS === 'ios'? pixelSizeVertical(15):pixelSizeVertical(5),
+    paddingHorizontal:Platform.OS === "ios" ?pixelSizeHorizontal(10):pixelSizeHorizontal(10),
 
   },
   signInTextStyle:{
     color:colors.darkGrey,
     fontFamily:'Poppins-Bold',
-    fontSize:12
+    fontSize:Platform.OS === "ios" ? fontPixel(25) : fontPixel(20),
   },
   facebookStyle:{
     marginRight:10,
     marginLeft:10,
-    color:colors.main
+    color:colors.facebookBlue
   },
   googleStyle:{
     marginRight:10,
     marginLeft:10,
-    color:colors.main
+    color:colors.googleRed
   },
   biometricStyle:{
     justifyContent:'center',
     alignItems:"center",
-    marginTop:20
+    marginTop:Platform.OS === "ios" ? 15 : 20,
   },
   biometrics:{
     fontSize:30,

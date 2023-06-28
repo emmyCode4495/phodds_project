@@ -43,6 +43,7 @@ const VendorScreen = () => {
               source={require('../../../assets/images/vendor.png')}
             />
         </View>
+
         <Formik>                                                                                                                                                                                
           {(props)=>(
             <View>
@@ -82,7 +83,6 @@ const VendorScreen = () => {
                   <TextInput 
                   placeholder='email'
                   color={colors.main}
-                  keyboardType='email-address'
                   placeholderTextColor={colors.main}
                   style={styles.emailTextInput}
                   />
@@ -106,73 +106,12 @@ const VendorScreen = () => {
                   keyboardType='numeric'
                   color={colors.main}
                   style={styles.emailTextInput}
-                  />
-              </View>
-
-            </View>
-
-            
-            <View style={styles.InputViews}>
-              <View>
-                <PhoneIcons
-                  name="home"
-                  color={colors.main}
-                  size={24}
-                  style={styles.email}
-                />
-              </View>
-
-              <View style={styles.emailStyle}>
-                  <TextInput 
-                  placeholder='17 PALM STREET'
-                  placeholderTextColor={colors.main}
-                  color={colors.main}
-                  style={styles.emailTextInput}
+                  
                   />
               </View>
             </View>
 
-            <View styles={{flexDirection:'row'}}>
-            <View style={styles.InputViews}>
-              
-                <PhoneIcons
-                  name="home"
-                  color={colors.main}
-                  size={24}
-                  style={styles.email}
-                />
-              </View>
-              <View style={styles.emailStyle}>
-                  <TextInput 
-                  placeholder='MARVINA INC.'
-                  placeholderTextColor={colors.main}
-                  color={colors.main}
-                  style={styles.emailTextInput}
-                  />
-              </View>
-            </View>
-
-            <View style={styles.InputViews}>
-              <View>
-                <PhoneIcons
-                  name="home"
-                  color={colors.main}
-                  size={24}
-                  style={styles.email}
-                />
-              </View>
-              <View style={styles.emailStyle}>
-                  <TextInput 
-                  placeholder='MARVINA INC.'
-                  placeholderTextColor={colors.main}
-                  color={colors.main}
-                  style={styles.emailTextInput}
-                  />
-              </View>
-            </View>
-            </View>
-
-            <View style={styles.InputViews}>
+            <View style={styles.InputViews1}>
               <View>
                 <LockedIcon
                   name="locked"
@@ -191,6 +130,15 @@ const VendorScreen = () => {
                   autoFocus={false}
                   />
               </View>
+
+              {/* <View>
+                <PhoneIcons
+                  name="visibility-off"
+                  color={colors.main}
+                  size={24}
+                  style={styles.email1}
+                />
+              </View> */}
             </View>
 
             <View style={styles.InputViews}>
@@ -215,10 +163,16 @@ const VendorScreen = () => {
 
             <View style={styles.buttonViewStyle}>
             <Button
-            title="SUBMIT"
+            title="CREATE ACCOUNT"
             buttonStyle={styles.buttonStyle}
             titleStyle={styles.titleViewStyle}
             />
+            </View>
+            <View style={styles.newUserViewStyle}>
+              <Text style={styles.newUserText}>Already have an account? </Text>
+              <TouchableOpacity onPress={()=>navigation.navigate("Login")}>
+              <Text style={styles.createAccountText}>Sign in here!</Text>
+              </TouchableOpacity>
             </View>
             </View>
           )}

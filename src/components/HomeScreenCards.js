@@ -5,13 +5,14 @@ import React from 'react'
 
 import colors from '../constants/Colors'
 import { useNavigation } from '@react-navigation/native';
+import { widthPixel,heightPixel,pixelSizeHorizontal,pixelSizeVertical, fontPixel } from '../constants/dimensions';
 
 
 const HomeScreenCards = () => {
   const navigation = useNavigation();
   return (
-<View style={{flex:1,}}>    
-    <View style={{...styles.container,marginRight:5}}>
+<View style={styles.mainView}>    
+    <View style={{...styles.container}}>
       
       <View style={styles.card2}>
         <TouchableOpacity>
@@ -31,7 +32,7 @@ const HomeScreenCards = () => {
            source={require('../../assets/images/iphone.png')}
            style={styles.imageStyle}
            />
-           <Text style={{...styles.categoryText,paddingLeft:20,fontSize:18}}>ios</Text>
+           <Text style={{...styles.categoryText,paddingLeft:20,fontSize:fontPixel(15)}}>ios</Text>
         </TouchableOpacity>
       </View>
 
@@ -48,7 +49,7 @@ const HomeScreenCards = () => {
       </View>
       
     </View>
-    <View style={{...styles.container,marginRight:5}}>
+    <View style={{...styles.container}}>
       
       <View style={styles.card2}>
       <TouchableOpacity onPress={()=>navigation.navigate("android")}>
@@ -56,7 +57,7 @@ const HomeScreenCards = () => {
            source={require('../../assets/images/androidlogo.png')}
            style={styles.imageStyle}
            />
-           <Text style={{...styles.categoryText,fontSize:18}}>Android</Text>
+           <Text style={{...styles.categoryText,fontSize:fontPixel(15)}}>Android</Text>
         </TouchableOpacity>
       </View>
 
@@ -68,7 +69,7 @@ const HomeScreenCards = () => {
            source={require('../../assets/images/tablet.png')}
            style={styles.imageStyle}
            />
-           <Text style={{...styles.categoryText,fontSize:18}}>Tablets</Text>
+           <Text style={{...styles.categoryText,fontSize:fontPixel(15)}}>Tablets</Text>
         </TouchableOpacity>
       </View>
 
@@ -80,12 +81,12 @@ const HomeScreenCards = () => {
            source={require('../../assets/images/phontrepas.png')}
            style={styles.imageStyle}
            />
-           <Text style={{...styles.categoryText,fontSize:18}}>accesories</Text>
+           <Text style={{...styles.categoryText,fontSize:fontPixel(15)}}>accesories</Text>
         </TouchableOpacity>
       </View>
       
     </View>                            
-    <View style={{...styles.container,marginRight:5}}>
+    <View style={{...styles.container}}>
       
       <View style={styles.card2}>
       <TouchableOpacity
@@ -95,7 +96,7 @@ const HomeScreenCards = () => {
            source={require('../../assets/images/powerbank.png')}
            style={styles.imageStyle}
            />
-            <Text style={{...styles.categoryText,fontSize:12}}>Powerbanks</Text>
+            <Text style={{...styles.categoryText,fontSize:fontPixel(12)}}>Powerbanks</Text>
         </TouchableOpacity>
       </View>
 
@@ -108,7 +109,7 @@ const HomeScreenCards = () => {
            source={require('../../assets/images/rairpods.png')}
            style={styles.imageStyle}
            />
-            <Text style={{...styles.categoryText,fontSize:14}}>Airpods</Text>
+            <Text style={{...styles.categoryText,fontSize:fontPixel(14)}}>Airpods</Text>
         </TouchableOpacity>
       </View>
 
@@ -120,7 +121,7 @@ const HomeScreenCards = () => {
            source={require('../../assets/images/smart.png')}
            style={styles.imageStyle}
            />
-           <Text style={{...styles.categoryText,fontSize:12,justifyContent:"center"}}>Smart Watches</Text>
+           <Text style={{...styles.categoryText,fontSize:fontPixel(12),justifyContent:"center"}}>Smart Watches</Text>
         </TouchableOpacity>
       </View>
       
@@ -133,30 +134,26 @@ const HomeScreenCards = () => {
 export default HomeScreenCards
 
 const styles = StyleSheet.create({
+  mainView:{
+      flex:1,
+      width:widthPixel(200)
+  },
     container:{
-       
         flexDirection:'row',
-        justifyContent:"space-between",
+        justifyContent:"center",
         alignItems:'center',
-        marginLeft:12,
-        marginRight:12,
+        marginRight:5,
+        maeginLeft:30,
         marginTop:10,
-    },
-    card1:{
-        justifyContent:'center',
-        alignItems:'center',
-        paddingHorizontal:50,
-        paddingVertical:50,
-        borderRadius:30,
-        maxHeight:"60%",
-        maxWidth:"50%",
-        backgroundColor:colors.white
+        width:widthPixel(400)
     },
     card2:{
         justifyContent:'center',
         alignItems:'center',
-        paddingHorizontal:30,
-        paddingVertical:25,
+        paddingHorizontal:pixelSizeVertical(20),
+        paddingVertical:pixelSizeVertical(20),
+        marginTop:10,
+        marginLeft:20,
         borderRadius:30,
         backgroundColor:colors.lightGrey2
     },
@@ -164,8 +161,8 @@ const styles = StyleSheet.create({
         color:colors.black
     },
     imageStyle:{
-        height:60,
-        width:60,
+        height:heightPixel(60),
+        width:widthPixel(60),
         borderRadius:15,
     },
     categoryText:{
@@ -173,6 +170,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
         fontFamily:'Poppins-Regular',
         fontWeight:800,
-        justifyContent:'center'
+        justifyContent:'center',
+        fontSize:fontPixel(16)
     }
 })

@@ -9,6 +9,7 @@ import { View,
 import colors from '../../constants/Colors'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
+import { fontPixel, widthPixel,pixelSizeHorizontal,pixelSizeVertical } from '../../constants/dimensions'
 
 const {height} = Dimensions.get("window")
 
@@ -57,49 +58,52 @@ const styles = StyleSheet.create({
         
     },
     captionText:{
-        fontSize:30,
+        fontSize:fontPixel(25),
         color:colors.main,
         fontFamily:"Poppins-Bold",
         textAlign:'center',
         marginTop:10
     },
     captionText1:{
-        fontSize:12,
+        fontSize:fontPixel(12),
         color:colors.black,
         fontWeight:800,
-        fontFamily:"Pangolin-Regular",
+        fontFamily:"Poppins-Bold",
         textAlign:'center',
     },
     touchOpacityStyle:{
         backgroundColor:colors.main,
-        width:'50%',
-        paddingHorizontal: 55,
-        paddingVertical:20,
+        width:widthPixel(200),
+        paddingHorizontal: pixelSizeHorizontal(50),
+        paddingVertical:pixelSizeVertical(20),
         borderRadius:30
     },
     touchOpacityStyle1:{
         backgroundColor:colors.white,
-        width:'50%',
-        paddingHorizontal: 55,
-        paddingVertical:20,
-        marginLeft: 10,
-        borderRadius:30
+        width:widthPixel(200),
+        paddingHorizontal: pixelSizeHorizontal(50),
+        paddingVertical:pixelSizeVertical(20),
+        borderRadius:30,
+        marginLeft:5,
+        marginRight:5
     },
     touchableOpacityViewStyle:{
         paddingHorizontal:20,
         marginTop:40,
-        flexDirection:'row'
+        flexDirection:'row',
+        justifyContent:'center',
+        alignItems:'center'
     },
     loginTextStyle:{
         textAlign:'center',
         fontFamily:"Poppins-Bold",
         color:colors.white,
-    fontSize:15  
+        fontSize:fontPixel(15)  
 },
 registerTextStyle:{
     textAlign:'center',
     fontFamily:"Poppins-Bold",
     color:colors.main,
-    fontSize:15  
+    fontSize:fontPixel(15)    
 },
 })        

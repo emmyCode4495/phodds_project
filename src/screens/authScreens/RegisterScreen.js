@@ -22,6 +22,8 @@ import colors from '../../constants/Colors';
 import {Formik} from "formik"
 import { color } from 'react-native-elements/dist/helpers'
 
+import { fontPixel,heightPixel, widthPixel,pixelSizeHorizontal,pixelSizeVertical } from '../../constants/dimensions'
+
 function RegisterScreen({navigation}) {
   return (
     <View style={styles.view1}>
@@ -188,9 +190,9 @@ export default RegisterScreen;
 
 const styles = StyleSheet.create({
    emailStyle:{
-    marginTop:1,
-    marginLeft:5,
-    maxWidth:"65%",
+    marginTop:Platform.OS === "ios" ? 10:1,
+    marginLeft:Platform.OS === "ios" ? 12:10,
+    // maxWidth:widthPixel(200),
     justifyContent:'flex-start'
   },
   container:{
@@ -204,7 +206,7 @@ marginTop:4,
 
 },
 txtTitle:{
-  fontSize:24,
+  fontSize:fontPixel(24),
   fontFamily:"Poppins-Bold",
   color:colors.main
 },
@@ -224,11 +226,11 @@ txtTitle:{
     resizeMode:'contain',
     alignItems:'center',
     justifyContent:'center',
-    width:200,
-    height:180  
+    width:widthPixel(200),
+    height:heightPixel(180)  
   },
   signupTxt:{
-    fontSize:30,
+    fontSize:fontPixel(30),
     fontFamily:"Poppins-Bold"
   },
   InputViews:{
@@ -240,7 +242,7 @@ txtTitle:{
     marginTop:20,
     marginLeft:5,
     marginRight:5,
-    height:60  
+    height:heightPixel(60)  
   },
   InputViews1:{
     flexDirection:'row',
@@ -248,11 +250,10 @@ txtTitle:{
     borderColor:colors.main,
     borderRadius:25,
     paddingLeft:5,
-    marginTop:20,
-    marginLeft:10,
+    marginTop:Platform.OS === "ios" ? 20:20,
+    marginLeft:5,
     marginRight:5,
-    height:60,
-    padding:10  
+    height:heightPixel(60),
   },
   email:{
     padding:0,
@@ -265,7 +266,7 @@ txtTitle:{
     marginRight:12
   },
   emailTextInput:{
-    fontSize:18,
+    fontSize:fontPixel(18),
   },
   buttonStyle:{
   borderWidth:1,
@@ -276,7 +277,9 @@ txtTitle:{
   buttonViewStyle:{
     paddingHorizontal:10,
     paddingVertical:25,
-    width:"100%",
+    width:widthPixel(400),
+    justifyContent:'center',
+    alignItems:'center'
   },
   titleViewStyle:{
     paddingHorizontal:5,
@@ -298,7 +301,7 @@ txtTitle:{
   },
   createAccountText:{
     fontFamily:"Poppins-Bold",
-    fontSize:14,
+    fontSize:fontPixel(18),
     color:colors.main,
     fontWeight:800
   }
