@@ -4,6 +4,7 @@ import { StatusBar, View,StyleSheet } from 'react-native';
 import React from 'react';
 import colors from '../Phodds/src/constants/Colors';
 
+import { HomeScreen } from './src/components/TabsIndex';
 import RegisterScreen from '../Phodds/src/screens/authScreens/RegisterScreen';
 import LoginScreen from '../Phodds/src/screens/authScreens/LoginScreen';
 import AppStack from '../Phodds/src/navigation/AppStack'
@@ -11,6 +12,9 @@ import AuthStack from '../Phodds/src/navigation/AuthStack'
 import { NavigationContainer } from '@react-navigation/native';
 import RootNavigator from '../Phodds/src/navigation/RootNavigator'
 import HomeScreenCards from './src/components/HomeScreenCards';
+import RegisterOptions from './src/screens/authScreens/RegisterOptionsScreen';
+import VendorScreen from './src/screens/authScreens/VendorScreen';
+import ItemDetails from './src/screens/utilityScreens/ItemDetails';
                                                                                                                                                                
 
 export default function App(){
@@ -19,10 +23,8 @@ export default function App(){
         <View style={styles.container}>
          <StatusBar 
         barStyle="light-content"
-        backgroundColor= {colors.main}/>
-        <RootNavigator />
-        <HomeScreenCards/>
-        {/* <VendorScreen/> */}
+        backgroundColor={colors.main}/>
+        <RootNavigator /> 
         </View>
         // </NavigationContainer>
     )

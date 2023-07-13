@@ -1,4 +1,4 @@
-import { View, TouchableOpacity,Text,StyleSheet, Image,ScrollView } from 'react-native'
+import { View, TouchableOpacity,Text,StyleSheet, Image,ScrollView,SafeAreaView } from 'react-native'
 import colors from '../../constants/Colors'
 import React from 'react'
 import Icon from 'react-native-vector-icons/AntDesign'
@@ -14,7 +14,7 @@ import { TrendingData } from '../../constants/data'
 
 const ProfileScreen = ({navigation}) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
     {/* <Header 
     title="Profile"                                                                     
     type="arrowleft"
@@ -190,7 +190,7 @@ const ProfileScreen = ({navigation}) => {
           </TouchableOpacity>
       </View>
   </ScrollView>
-</View>
+</SafeAreaView>
   )
 } 
 

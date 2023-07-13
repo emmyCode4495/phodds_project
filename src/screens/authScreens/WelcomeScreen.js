@@ -41,7 +41,7 @@ function WelcomeScreen() {
 
                 <TouchableOpacity 
                 style={styles.touchOpacityStyle1}
-                onPress={()=>navigation.navigate("Register")}
+                onPress={()=>navigation.navigate("RegisterOption")}
                 >
                     <Text style={styles.registerTextStyle}>REGISTER</Text>
                 </TouchableOpacity>

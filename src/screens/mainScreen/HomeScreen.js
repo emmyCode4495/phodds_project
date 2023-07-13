@@ -17,6 +17,7 @@ import CardsDisplay from '../../components/CardsDisplay';
 import Rating from '../../components/Rating';
 
 import { fontPixel,heightPixel, widthPixel,pixelSizeHorizontal,pixelSizeVertical } from '../../constants/dimensions'
+import TopVendorsCards from '../../components/TopVendorsCards';
 
 var { height, width } = Dimensions.get('window');
 
@@ -57,21 +58,31 @@ const [switchMode, setSwitchMode] = useState(true)
         </TouchableOpacity>
       </View>
       
-      </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={styles.categoryViewStyle}>
-        <Text style={styles.categoryStyle}>Categories</Text>
-      </View>
-      <HomeScreenCards/>
-      <View style={styles.categoryViewStyle}>
-        <Text style={styles.categoryStyle}>Trending</Text>
-      </View>
-
+      </View> 
       <View>
         <FlatList
         horizontal={false} 
           data={TrendingData}
           keyExtractor={(item,index)=>index.toString()}
+          ListHeaderComponent={() =>(
+            <>          
+              <View style={styles.categoryViewStyle}>
+                <Text style={styles.categoryStyle}>Categories</Text>
+              </View>
+              <HomeScreenCards/>
+
+              <View style={styles.categoryViewStyle}>
+                  <Text style={styles.categoryStyle}>Top Vendors</Text>
+               </View>
+                <ScrollView>
+                    <TopVendorsCards/>
+                </ScrollView>
+
+                <View style={styles.categoryViewStyle}>
+                  <Text style={styles.categoryStyle}>Trending</Text>
+                 </View>
+            </>
+          )}
           renderItem={({item,index})=>(
             <View>
               <CardsDisplay
@@ -92,7 +103,6 @@ const [switchMode, setSwitchMode] = useState(true)
         />      
         
       </View>
-      </ScrollView>
     </SafeAreaView>
   )
 }

@@ -2,6 +2,7 @@ import { View,
   StyleSheet,
   ImageBackground,
   Image,
+  SafeAreaView,
   Text,
   ScrollView,
   TextInput,
@@ -26,7 +27,7 @@ import { fontPixel,heightPixel, widthPixel,pixelSizeHorizontal,pixelSizeVertical
 
 function RegisterScreen({navigation}) {
   return (
-    <View style={styles.view1}>
+    <SafeAreaView style={styles.view1}>
       <View style={styles.container}>
         <View style={styles.IconStyle}>
             <ArrowIcon 
@@ -67,7 +68,7 @@ function RegisterScreen({navigation}) {
                   color={colors.main}
                   placeholderTextColor={colors.main}
                   style={styles.emailTextInput}
-                  autoFocus={true}
+                  // autoFocus={true}
                   />
               </View>
             </View>
@@ -181,7 +182,7 @@ function RegisterScreen({navigation}) {
           )}
         </Formik>
         </ScrollView>     
-</View>  
+</SafeAreaView>  
 
   )
 }
@@ -198,7 +199,7 @@ const styles = StyleSheet.create({
   container:{
     flexDirection:'row',
     marginTop:30,
-    paddingHorizontal:15,
+    paddingHorizontal:pixelSizeHorizontal(15),
 },
 headerText:{
 marginLeft:15,
@@ -215,8 +216,8 @@ txtTitle:{
   },
   view2:{
     flex:1,
-    paddingHorizontal:10,
-    paddingVertical:10,
+    paddingHorizontal:pixelSizeHorizontal(10),
+    paddingVertical:pixelSizeVertical(10),
     alignItems:'center',
     justifyContent:"center"
   },
@@ -275,18 +276,18 @@ txtTitle:{
   backgroundColor:colors.main
   },
   buttonViewStyle:{
-    paddingHorizontal:10,
-    paddingVertical:25,
+    paddingHorizontal:pixelSizeHorizontal(10),
+    paddingVertical:pixelSizeVertical(25),
     width:widthPixel(400),
     justifyContent:'center',
     alignItems:'center'
   },
   titleViewStyle:{
-    paddingHorizontal:5,
-    paddingVertical:5,
+    paddingHorizontal:pixelSizeHorizontal(5),
+    paddingVertical:pixelSizeVertical(5),
     fontFamily:"Poppins-Bold",
     color:colors.white,
-    fontSize:16
+    fontSize:fontPixel(16)
   },
   newUserViewStyle:{
     flexDirection:'row',
@@ -295,7 +296,7 @@ txtTitle:{
   },
   newUserText:{
     fontFamily:"Poppins-Bold",
-    fontSize:14,
+    fontSize:fontPixel(14),
     marginRight:5,
     color:colors.darkGrey
   },

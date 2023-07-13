@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "391592148139",
+    "project_id": "phodds-6391d",
+    "storage_bucket": "phodds-6391d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391592148139:android:f3f7059ec28362079c8bee",
+        "android_client_info": {
+          "package_name": "com.phodds"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "391592148139-11ka9cfkvndgjnvralp2pp3bbslk451c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.phodds",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "391592148139-2siia918a803s5pmi1rn7h5r3p3q1tan.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1u_bFYn8voc4cOTTst_RQ_IxyVSTu2ho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "391592148139-2siia918a803s5pmi1rn7h5r3p3q1tan.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -24,6 +24,9 @@ import PowerbanksScreen from '../screens/categoriesScreen/PowerbanksScreen'
 import SmartWatchesScreen from '../screens/categoriesScreen/SmartWatchesScreen'
 import TabletsScreen from '../screens/categoriesScreen/TabletsSreen'
 import ItemDetails from '../screens/utilityScreens/ItemDetails'
+import RegisterOptions from '../screens/authScreens/RegisterOptionsScreen'
+import { Screen } from 'react-native-screens'
+import VendorScreen from '../screens/authScreens/VendorScreen'
 
 const Stack = createNativeStackNavigator();
 
@@ -38,7 +41,9 @@ export default function AuthStack(){
           <Stack.Screen name="drawerNav" component={AppStack}/>
             <Stack.Screen name="Login" component={LoginScreen}/>
             <Stack.Screen name="Register" component={RegisterScreen}/>
+            <Stack.Screen name="RegisterOption" component={RegisterOptions}/>
             <Stack.Screen name="welcome" component={WelcomeScreen}/>
+            <Stack.Screen name="vending" component={VendorScreen}/>
             <Stack.Screen name="brandnew" component={BrandNewGadgetsScreen}/>
             <Stack.Screen name="fairlyUsed" component={FairlyUsedGadgetsScreen}/>
             <Stack.Screen name="ios" component={IosDataScreen}/>

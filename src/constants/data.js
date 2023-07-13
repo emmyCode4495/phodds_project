@@ -1,3 +1,6 @@
+import {Image} from 'react-native'
+
+
 export const TrendingData =
 [
     {productName:'Iphone 14 pro max',
@@ -204,4 +207,19 @@ export const smartwatchData =
     {title:"Redmi bands", key:5},
     {title:"Oraimo smart watches", key:6},
 ];
+
+export const businessCategory =
+[
+    "ios",
+    "Android", 
+    "Laptops",
+    "Tabs", 
+    "Airpods",
+    "Smart watch",
+    "Powerbanks",
+    "Accesories",
+]
+
+
+
 

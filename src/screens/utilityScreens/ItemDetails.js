@@ -15,6 +15,8 @@ import CardsDisplay from '../../components/CardsDisplay'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Call from 'react-native-vector-icons/Entypo'
 
+import { fontPixel,heightPixel, widthPixel,pixelSizeHorizontal,pixelSizeVertical } from '../../constants/dimensions'
+
 export default function ItemDetails({navigation,route}) {
 
     const {id, trending}  = route.params
@@ -48,16 +50,23 @@ export default function ItemDetails({navigation,route}) {
             <Text style={styles.locationText}>{TrendingData[id].location}</Text>
           </View>
 
-          <View>
+          <View style={styles.productNameView}>
               <Text style={styles.productText}>{TrendingData[id].productName}</Text>
           </View>
 
-          <View style={{marginTop:3}}>
+          <View style={styles.descriptionTextView}>
             <Text style={styles.descriptionText}>{TrendingData[id].description}</Text>
           </View>
 
-          <View>
-          <Text style={styles.amountText}>{TrendingData[id].amount}</Text>
+          <View style={styles.amountTextMainView}>
+            <View style={styles.amountTextView}>
+            <Text style={{...styles.amountText, color:colors.red}}>Price:</Text>
+            </View>
+
+            <View style={styles.amountTextView}>
+            <Text style={styles.amountText}>{TrendingData[id].amount}</Text>
+            </View>
+
           </View>
 
           <View style={styles.requestCallView}>
@@ -86,18 +95,21 @@ export default function ItemDetails({navigation,route}) {
 
           <View style={styles.itemMajorDetail}>
 
-          <View style={styles.topView}>
+          <View style={styles.chatView}>
               <Text style={{...styles.chatText}}>Start phodds chat with seller</Text>
           </View>
 
-          <View style={styles.optionChat}>
+          <View style={styles.textInputView}>
+          <TextInput 
+                  placeholder='type message here'
+                  color={colors.black}
+                  placeholderTextColor={colors.darkGrey}
+                  style={{marginLeft:10}}
+                  autoFocus={false}
+                  />  
+          </View>
 
-            <View style={styles.optionChatView}>
-              <TouchableOpacity>
-                <Text style={{color:colors.main,fontFamily:'Roboto-Regular'}}>Make an offer</Text>
-              </TouchableOpacity>   
-            </View>
-           
+          <View style={styles.optionChat}>
             <View style={styles.optionChatView}>
               <TouchableOpacity>
                 <Text style={{color:colors.main,fontFamily:'Roboto-Regular'}}>still available</Text>
@@ -117,21 +129,10 @@ export default function ItemDetails({navigation,route}) {
             </View>
           </View>
 
-          <View style={styles.textInputView}>
-          <TextInput 
-                  placeholder='type message here'
-                  color={colors.black}
-                  placeholderTextColor={colors.darkGrey}
-                  style={{marginLeft:10}}
-                  autoFocus={false}
-                  />  
-          </View>
 
           <TouchableOpacity>
           <View style={styles.startChatView}>
-            
               <Text style={styles.startChatStyle}>Start Chat</Text>
-            
           </View>
           </TouchableOpacity>
 
@@ -214,7 +215,22 @@ export default function ItemDetails({navigation,route}) {
 const styles = StyleSheet.create({
 
   ImageStyle:{
-    height:200
+    height:heightPixel(200)
+  },
+  productNameView:{
+    justifyContent:'center',
+    alignItems:'center',
+    fontSize:fontPixel(24),
+    marginBottom:5
+  },
+  descriptionTextView:{
+    marginBottom:10
+  },
+  amountTextView:{
+
+  },
+  amountTextMainView:{
+    flexDirection:'row'
   },
   itemMajorDetail:{
     borderWidth:1,
@@ -223,7 +239,7 @@ const styles = StyleSheet.create({
     borderTopStartRadius:20,
     backgroundColor:colors.white,
     maxWidth:"100%",
-    height:200,
+    height:Platform.OS === 'ios'?heightPixel(285):heightPixel(270),
     marginTop:5,
     marginLeft:10,
     marginRight:10,
@@ -237,7 +253,7 @@ const styles = StyleSheet.create({
     borderTopStartRadius:20,
     backgroundColor:colors.white,
     maxWidth:"100%",
-    height:300,
+    height:Platform.OS === 'ios'?heightPixel(300):heightPixel(300),
     marginTop:5,
     marginLeft:10,
     marginRight:10,
@@ -259,20 +275,21 @@ const styles = StyleSheet.create({
     color:colors.black,
     marginLeft:10,
     fontFamily:'Roboto-Bold',
-    fontSize:18,
+    fontSize:fontPixel(18),
     textTransform:'uppercase'
   },
   descriptionText:{
     color:colors.black,
     marginLeft:10,
     fontFamily:'Poppins-Regular',
-    fontSize:14,
+    fontSize:fontPixel(15),
+    letterSpacing:0.5
   },
   amountText:{
     color:colors.main,
     marginLeft:10,
     fontFamily:'Poppins-Bold',
-    fontSize:14,
+    fontSize:fontPixel(15),
   },
   requestCallView:{
     flexDirection:'row',
@@ -285,7 +302,7 @@ const styles = StyleSheet.create({
     padding:5,
     borderRadius:30,
     maxWidth:"60%",
-    paddingHorizontal:20,
+    paddingHorizontal:pixelSizeHorizontal(20),
     borderColor:colors.main
   },
   call:{
@@ -293,7 +310,7 @@ const styles = StyleSheet.create({
     padding:5,
     borderRadius:30,
     maxWidth:"60%",
-    paddingHorizontal:45,
+    paddingHorizontal:pixelSizeHorizontal(45),
     borderColor:colors.main,
     backgroundColor:colors.main
   },
@@ -302,46 +319,59 @@ const styles = StyleSheet.create({
   },
   requestText:{
     color:colors.main,
-    fontSize:16,
+    fontSize:fontPixel(16),
     fontFamily:"Poppins-Bold"
   },
   callText:{
     color:colors.main,
-    fontSize:16,
+    fontSize:fontPixel(20),
     fontFamily:"Poppins-Bold",
     color:colors.white
   },
   chatText:{
     color:colors.black,
     marginLeft:10,
+    fontWeight:800,
     fontFamily:'Roboto-Regular',
-    fontSize:18,
+    fontSize:fontPixel(18),
+  },
+  chatView:{
+    justifyContent:'center',
+    alignItems:'center',
+    marginBottom:5,
+    marginTop:3
   },
   optionChat:{
     flexDirection:'row',
-    marginRight:10,
+    marginTop:5,
+    width:widthPixel(110),
+    marginLeft:Platform.OS === 'ios'?25:30,
+    marginBottom:Platform.OS === 'ios'?10:10
   },
   optionChatView:{
     borderWidth:1,
+    paddingHorizontal:3,
+    paddingVertical:2,
     borderRadius:20,
-    paddingHorizontal:8,
-    paddingVertical:5,
+    justifyContent:'center',
+    alignItems:'center',
     borderColor:colors.main,
-    marginRight:10
+    marginRight:10,
+    marginBottom:10,
+    // marginLeft:3
   },
-  topView:{
-    marginBottom:10
-  },
+ 
   textInputView:{
     borderWidth:1,
     borderRadius:15,
+    paddingVertical:Platform.OS === 'ios'? pixelSizeVertical(20):pixelSizeVertical(3),
     marginTop:10,
     marginBottom:10,
     borderColor:colors.main
   },
   startChatView:{
     borderWidth:1,
-    height:50,
+    height:heightPixel(50),
     maxwidth:"100%",
     justifyContent:'center',
     alignItems:'center',
@@ -353,12 +383,13 @@ const styles = StyleSheet.create({
     color:colors.white,
     textTransform:'uppercase',
     fontFamily:'Poppins-Bold',
-    fontSize:18
+    fontSize:fontPixel(18)
   },
 
   specsView:{
     flexDirection:'row',
     marginRight:10,
     marginLeft:10,
-    justifyContent:'space-around'}
+    justifyContent:'space-around'
+  }
 })
