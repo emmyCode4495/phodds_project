@@ -1,5 +1,3 @@
-import {Image} from 'react-native'
-
 
 export const TrendingData =
 [
@@ -122,91 +120,6 @@ export const TrendingData =
         id:9},       
 ];
 
-export const iosData =
-[
-    {title:"iPhones", key:0},
-    {title:"Silicon Pouch", key:1},
-    {title:"Magsafe Pouch", key:2},
-    {title:"Screen Protectors", key:3},
-    {title:"Chargers", key:4},
-    {title:"Cables", key:5},
-]
-
-export const laptopData =
-[
-    {title:"Laptops", key:0},
-    {title:"Monitors", key:1},
-    {title:"Quality Laptop Batteries", key:2},
-    {title:"Laptop Chargers", key:3},
-    {title:"External Mouse", key:4},
-    {title:"External Keyboard", key:5},
-    {title:"Laptop Skins", key:6},
-];
-
-export const androidData =
-[
-    {title:"Samsung",key:1},
-    {title:"Redmi", key:2},
-    {title:"Oppo", key:3},
-    {title:"Nokia", key:4},
-    {title:"Vivo", key:5},
-    {title:"Tecno", key:6},
-    {title:"Itel", key:7},
-    {title:"Infinix", key:8},
-    {title:"itel Button Phones", key:9},
-    {title:"Tecno Button Phones", key:10},
-    {title:"Nokia Button Phones", key:11},
-  
-];
-
-export const tabData =
-[
-    {title:"Samsung Tabs",key:1},
-    {title:"Huawei Tabs", key:2},
-    {title:"Nokia Tabs", key:3},
-    {title:"Itel Pads", key:4},
-    {title:"Redmi Pad", key:5},
-]
-
-export const accesoriesData =
-[
-    {title:"Extension Sockets",key:1},
-    {title:"Earpiece", key:2},
-    {title:"Clippers", key:3},
-    {title:"Trimmers", key:4},
-    {title:"Weight Scale", key:5},
-    {title:"Headsets", key:6},
-    {title:"Speakers", key:7},
-]
-
-export const powerbankData =
-[
-    {title:"Oraimo Powerbank",key:1},
-    {title:"Redmi Powerbank", key:2},
-    {title:"Itel Powerbank", key:3},
-    {title:"Baseus Powerbank", key:4},
-    {title:"Porodo Powerbank", key:5},
-]
-
-export const airpodsData =
-[
-    {title:"Apple airpods",key:1},
-    {title:"Oraimo Airpods", key:2},
-    {title:"JBL wave", key:3},
-    {title:"Digifon Airpods", key:4},
-    {title:"Samsung Airpods", key:5},
-    {title:"Redmi Buds", key:6},
-];
-
-export const smartwatchData =
-[
-    {title:"Apple series Watch",key:1},
-    {title:"Samsung galaxy watch", key:2},
-    {title:"Wiwu Watch", key:3},
-    {title:"Huawei watch", key:4},
-    {title:"Redmi bands", key:5},
-    {title:"Oraimo smart watches", key:6},
-];
 
 export const businessCategory =
 [

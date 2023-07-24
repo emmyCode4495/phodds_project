@@ -11,6 +11,7 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { fontPixel, widthPixel,pixelSizeHorizontal,pixelSizeVertical } from '../../constants/dimensions'
 
+
 const {height} = Dimensions.get("window")
 
 function WelcomeScreen() {
@@ -46,6 +47,7 @@ function WelcomeScreen() {
                     <Text style={styles.registerTextStyle}>REGISTER</Text>
                 </TouchableOpacity>
             </View>
+            
     </SafeAreaView>
   )
 }

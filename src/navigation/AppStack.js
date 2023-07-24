@@ -21,6 +21,7 @@ import EntypoIcon from 'react-native-vector-icons/Entypo'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import MenuTabs from './MenuTabs';
 import AdminScreen from '../screens/utilityScreens/AdminScreen';
+import CategoryStack from './categoryStack';
 
 
 const Drawer = createDrawerNavigator();
@@ -42,7 +43,7 @@ const AppStack = ()=> {
                 }      
             }}
         >
-           
+          
             <Drawer.Screen name="Home" component={MenuTabs}
             options={{
               drawerIcon:({color})=>(

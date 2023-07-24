@@ -10,25 +10,28 @@ import LaptopsScreen from '../screens/categoriesScreen/LaptopsScreen'
 import PowerbanksScreen from '../screens/categoriesScreen/PowerbanksScreen'
 import SmartWatchesScreen from '../screens/categoriesScreen/SmartWatchesScreen'
 import TabletsScreen from '../screens/categoriesScreen/TabletsSreen'
+import AppStack from './AppStack'
 
-const Stack = createNativeStackNavigator();
+const catStack = createNativeStackNavigator();
 
 export default function CategoryStack(){
   return (
-    <Stack.Navigator
+    <catStack.Navigator
             screenOptions={{
                 headerShown:false
             }}
+            initialRouteName='app'
         >
-            <Stack.Screen name="ios" component={IosDataScreen}/>
-            <Stack.Screen name="android" component={AndroidScreen}/>
-            <Stack.Screen name="accessories" component={AccessoriesScreen}/>
-            <Stack.Screen name="airpods" component={AirpodsScreen}/>
-            <Stack.Screen name="laptops" component={LaptopsScreen}/>
-            <Stack.Screen name="powerbank" component={PowerbanksScreen}/>
-            <Stack.Screen name="watch" component={SmartWatchesScreen}/>
-            <Stack.Screen name="tablets" component={TabletsScreen}/>
+            <catStack.Screen name="app" component={AppStack}/>
+            <catStack.Screen name="ios" component={IosDataScreen}/>
+            <catStack.Screen name="android" component={AndroidScreen}/>
+            <catStack.Screen name="accessories" component={AccessoriesScreen}/>
+            <catStack.Screen name="airpods" component={AirpodsScreen}/>
+            <catStack.Screen name="laptops" component={LaptopsScreen}/>
+            <catStack.Screen name="powerbank" component={PowerbanksScreen}/>
+            <catStack.Screen name="watch" component={SmartWatchesScreen}/>
+            <catStack.Screen name="tablets" component={TabletsScreen}/>
             
-        </Stack.Navigator>
+        </catStack.Navigator>
   )
 }

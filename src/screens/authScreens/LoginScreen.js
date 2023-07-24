@@ -7,7 +7,7 @@ import { View,
   TextInput,
   TouchableOpacity,
   SafeAreaView, } from 'react-native'
-import React from 'react'
+import React , {useState, useContext, useEffect}from 'react'
 import { Button } from 'react-native-elements'
 
 import Header from '../../components/header'
@@ -24,8 +24,18 @@ import LockedIcon from 'react-native-vector-icons/Fontisto'
 
 import colors from '../../constants/Colors';                                                                    
 import {Formik} from "formik"
+import { AuthContext } from '../../navigation/AuthProvider'
+
+
 
 function LoginScreen({navigation}) {
+
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+
+  const {login, googlelogin} = useContext(AuthContext)
+
+
   return (
      
     <SafeAreaView style={styles.view1}>
@@ -67,6 +77,7 @@ function LoginScreen({navigation}) {
               <View style={styles.emailStyle}>
                   <TextInput 
                   placeholder='test@gmail.com'
+                  onChangeText={(userEmail) => setEmail(userEmail)}
                   color={colors.main}
                   placeholderTextColor={colors.main}
                   style={styles.emailTextInput}
@@ -90,19 +101,13 @@ function LoginScreen({navigation}) {
                   <TextInput 
                   placeholder='*********'
                   color={colors.main}
+                  onChangeText={(userPassword) => setPassword(userPassword)}
+                  secureTextEntry={true}
                   placeholderTextColor={colors.main}
                   style={styles.emailTextInput}
                   autoFocus={false}
                   />
               </View>
-              {/* <View>
-                <PhoneIcons
-                  name="visibility-off"
-                  color={colors.main}
-                  size={24}
-                  style={styles.email1}
-                />
-              </View> */}
             </View>
             
               <View style={styles.changePasswordView}>
@@ -113,7 +118,7 @@ function LoginScreen({navigation}) {
             title="SIGN IN"
             buttonStyle={styles.buttonStyle}
             titleStyle={styles.titleViewStyle}
-            onPress={()=>navigation.navigate("drawerNav")}
+            onPress={()=> login(email, password)}
             />
             </View>
             <View style={styles.newUserViewStyle}>
@@ -134,11 +139,15 @@ function LoginScreen({navigation}) {
               style={styles.facebookStyle}
               />
               <Text style={{fontWeight:'bold', fontSize:30,color:colors.black}}>|</Text>
+             <TouchableOpacity
+             onPress={googlelogin}
+             >
               <Icon
                 name='google'
                 size={30}
                 style={styles.googleStyle}
               />
+              </TouchableOpacity>
             </View>
            
             {

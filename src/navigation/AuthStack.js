@@ -38,14 +38,16 @@ export default function AuthStack(){
             }}
             initialRouteName='welcome'
         >
-          <Stack.Screen name="drawerNav" component={AppStack}/>
+        
+          
             <Stack.Screen name="Login" component={LoginScreen}/>
             <Stack.Screen name="Register" component={RegisterScreen}/>
             <Stack.Screen name="RegisterOption" component={RegisterOptions}/>
             <Stack.Screen name="welcome" component={WelcomeScreen}/>
             <Stack.Screen name="vending" component={VendorScreen}/>
             <Stack.Screen name="brandnew" component={BrandNewGadgetsScreen}/>
-            <Stack.Screen name="fairlyUsed" component={FairlyUsedGadgetsScreen}/>
+            <Stack.Screen name="catStack" component={CategoryStack}/>
+            {/* <Stack.Screen name="fairlyUsed" component={FairlyUsedGadgetsScreen}/>
             <Stack.Screen name="ios" component={IosDataScreen}/>
             <Stack.Screen name="android" component={AndroidScreen}/>
             <Stack.Screen name="accessories" component={AccessoriesScreen}/>
@@ -55,8 +57,7 @@ export default function AuthStack(){
             <Stack.Screen name="watch" component={SmartWatchesScreen}/>
             <Stack.Screen name="tablets" component={TabletsScreen}/>
             <Stack.Screen name="itemDetail" component={ItemDetails}/>
-            <Stack.Screen name="drawer" component={AppStack}/>
-            <Stack.Screen name="category" component={CategoryStack}/>
+            <Stack.Screen name="drawer" component={AppStack}/> */}
             
             
         </Stack.Navigator>

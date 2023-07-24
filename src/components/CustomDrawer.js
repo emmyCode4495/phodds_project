@@ -4,7 +4,7 @@ import { View,
     Image,
     StyleSheet,
     TouchableOpacity} from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
 
 //Imports for the Icons used
 import Icon from 'react-native-vector-icons/AntDesign'
@@ -15,8 +15,10 @@ import LockedIcon from 'react-native-vector-icons/Fontisto'
 
 import { DrawerContentScrollView,DrawerItemList } from '@react-navigation/drawer'
 import colors from '../constants/Colors'
+import { AuthContext } from '../navigation/AuthProvider'
 
 const CustomDrawer = (props) => {
+    const {user, logout} = useContext(AuthContext)
   return (
     <View style={{flex:1}}>
     <DrawerContentScrollView {...props}
@@ -30,7 +32,7 @@ const CustomDrawer = (props) => {
                 />
                 <DarkIcon name="moon" size={30} color={colors.black}/>
                 </View>
-                <Text style={styles.profileNameText}>Hello, Emmanuel Pius</Text>
+                <Text style={styles.profileNameText}>Hello, {user.email}</Text>
                 <View style={{flexDirection:'row',justifyContent:'flex-end'}}>
                 <UserIcon name="briefcase" style={styles.clientIconStyle}/>
                 <Text style={styles.profileNameText1}>Client</Text>
@@ -48,7 +50,7 @@ const CustomDrawer = (props) => {
             </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>{}} style={{paddingVertical:15}}>
+        <TouchableOpacity onPress={()=>logout()} style={{paddingVertical:15}}>
             <View style={{flexDirection:'row', alignItems:'center'}}>
                 <Icon name="logout" size={27} color={colors.main}/>
                 <Text style={styles.shareAppTextStyle}>Sign Out</Text>

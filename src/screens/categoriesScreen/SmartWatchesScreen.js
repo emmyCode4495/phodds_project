@@ -1,42 +1,97 @@
-import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
-import React from 'react'
-import { smartwatchData } from '../../constants/data'
+import { TouchableOpacity, StyleSheet,FlatList, Text, View } from 'react-native'
+import { iosData } from '../../constants/data'
 import Header from '../../components/header'
 import colors from '../../constants/Colors'
 import { useNavigation } from '@react-navigation/native'
 
-import Icons from 'react-native-vector-icons/Ionicons' 
+import Icons from 'react-native-vector-icons/Ionicons'
 
-export default function SmartWatchesScreen() {
-  const navigation = useNavigation();
-  return (
-    <View>
-        <Header title="Smart Watches"
-            type="arrowleft"
-            Color={colors.white}
-            navigation={navigation}
-        />
-        
-{
-          smartwatchData.map((dataOutput,item)=>{
-            return(
-              <TouchableOpacity>
-              <View style={styles.smartwatchDataStyle} key={item.id}>
-                <Text style={styles.smartwatchDataText}>{dataOutput.title}</Text>
-                <Icons 
+import { AuthProvider } from './src/navigation/AuthProvider';
+
+import React, { Component, useState,useEffect } from 'react';
+
+import firestore from '@react-native-firebase/firestore';
+
+
+class SmartWatchesScreen extends Component{
+  constructor(props){
+    super(props);
+
+    this.state={
+      data:'',
+    }
+    
+  }
+
+
+componentDidMount(){
+
+this.callFunctionToPopulateFlatList()
+
+firestore()
+.collection('iosData')
+.orderBy('id')
+.get()
+.then(querySnapshot => {
+    console.log('Total Users: ',querySnapshot.size)
+
+    querySnapshot.forEach(documentSnapshot =>{
+        console.log("User ID: ", documentSnapshot.id, documentSnapshot.data())
+    })
+})
+
+}
+
+callFunctionToPopulateFlatList = () =>{
+  var newArrayOfData = [];
+
+firestore()
+.collection('Smartwatches')
+.orderBy('id')
+.get()
+.then(querySnapshot => {
+    querySnapshot.forEach(documentSnapshot => {
+        newArrayOfData.push(documentSnapshot.data())
+    });
+}).then(testing =>{
+  this.setState({data:newArrayOfData})
+})
+
+}
+  render(navigation){
+  return (  
+    <View style={{ flex: 1, backgroundColor: colors.lightGrey2 }}>
+      <Header title="Smart Watches"
+        type="arrowleft"
+        Color={colors.white}
+        navigation={navigation}
+      />
+
+
+      <FlatList
+        data={this.state.data}
+        renderItem={({ item }) => (
+          
+          <View style={styles.smartwatchDataStyle}>
+            <Text style={styles.smartwatchDataText}> {item.title} </Text>
+            <TouchableOpacity>
+            <Icons
                   name="ios-chevron-forward"
                   color={colors.black}
                   size={30}
                 />
-              </View>
               </TouchableOpacity>
-            )
-          })
-        }
-
+          </View>
+          
+        )}
+      />
     </View>
   )
-}
+    }
+  }
+
+  export default SmartWatchesScreen
+
 
 const styles = StyleSheet.create({
   smartwatchDataStyle:{

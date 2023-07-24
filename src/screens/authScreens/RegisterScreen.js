@@ -7,7 +7,7 @@ import { View,
   ScrollView,
   TextInput,
   TouchableOpacity, } from 'react-native'
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Button } from 'react-native-elements'
 
 import Header from '../../components/header'
@@ -24,8 +24,16 @@ import {Formik} from "formik"
 import { color } from 'react-native-elements/dist/helpers'
 
 import { fontPixel,heightPixel, widthPixel,pixelSizeHorizontal,pixelSizeVertical } from '../../constants/dimensions'
+import { AuthContext } from '../../navigation/AuthProvider'
 
 function RegisterScreen({navigation}) {
+
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+  const [confirmPassword, setConfirmPassword] = useState()
+
+  const {register} = useContext(AuthContext)
+
   return (
     <SafeAreaView style={styles.view1}>
       <View style={styles.container}>
@@ -86,6 +94,7 @@ function RegisterScreen({navigation}) {
               <View style={styles.emailStyle}>
                   <TextInput 
                   placeholder='email'
+                  onChangeText={(userEmail) => setEmail(userEmail)}
                   color={colors.main}
                   placeholderTextColor={colors.main}
                   style={styles.emailTextInput}
@@ -128,21 +137,14 @@ function RegisterScreen({navigation}) {
               <View style={styles.emailStyle}>
                   <TextInput 
                   placeholder='password'
+                  onChangeText={(userPassword) => setPassword(userPassword)}
                   color={colors.main}
                   placeholderTextColor={colors.main}
                   style={styles.emailTextInput}
+                  secureTextEntry={true}
                   autoFocus={false}
                   />
               </View>
-
-              {/* <View>
-                <PhoneIcons
-                  name="visibility-off"
-                  color={colors.main}
-                  size={24}
-                  style={styles.email1}
-                />
-              </View> */}
             </View>
 
             <View style={styles.InputViews}>
@@ -158,7 +160,9 @@ function RegisterScreen({navigation}) {
               <View style={styles.emailStyle}>
                   <TextInput 
                   placeholder='Confirm password'
+                  onChangeText={(userPassword) => setPassword(userPassword)}
                   color={colors.main}
+                  secureTextEntry={true}
                   placeholderTextColor={colors.main}
                   style={styles.emailTextInput}
                   />
@@ -170,6 +174,7 @@ function RegisterScreen({navigation}) {
             title="CREATE ACCOUNT"
             buttonStyle={styles.buttonStyle}
             titleStyle={styles.titleViewStyle}
+            onPress={() => register(email,password)}
             />
             </View>
             <View style={styles.newUserViewStyle}>

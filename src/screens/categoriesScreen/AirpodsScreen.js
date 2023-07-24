@@ -1,41 +1,97 @@
-import { StyleSheet, Text, TouchableOpacity,View } from 'react-native'
-import React from 'react'
-import { airpodsData } from '../../constants/data'
+import { TouchableOpacity, StyleSheet,FlatList, Text, View } from 'react-native'
+import { iosData } from '../../constants/data'
 import Header from '../../components/header'
 import colors from '../../constants/Colors'
 import { useNavigation } from '@react-navigation/native'
 
-import Icons from 'react-native-vector-icons/Ionicons' 
+import Icons from 'react-native-vector-icons/Ionicons'
 
-export default function AirpodsScreen() {
-  const navigation = useNavigation();
-  return (
-    <View>
-        <Header title="Airpods"
-            type="arrowleft"
-            Color={colors.white}
-            navigation={navigation}
-        />
+import { AuthProvider } from './src/navigation/AuthProvider';
 
-{
-          airpodsData.map((dataOutput,item)=>{
-            return(
-              <TouchableOpacity>
-              <View style={styles.airpodsDataStyle} key={item.id}>
-                <Text style={styles.airpodsDataText}>{dataOutput.title}</Text>
-                <Icons 
+import React, { Component, useState,useEffect } from 'react';
+
+import firestore from '@react-native-firebase/firestore';
+
+
+class AirpodsScreen extends Component{
+  constructor(props){
+    super(props);
+
+    this.state={
+      data:'',
+    }
+    
+  }
+
+
+componentDidMount(){
+
+this.callFunctionToPopulateFlatList()
+
+firestore()
+.collection('iosData')
+.orderBy('id')
+.get()
+.then(querySnapshot => {
+    console.log('Total Users: ',querySnapshot.size)
+
+    querySnapshot.forEach(documentSnapshot =>{
+        console.log("User ID: ", documentSnapshot.id, documentSnapshot.data())
+    })
+})
+
+}
+
+callFunctionToPopulateFlatList = () =>{
+  var newArrayOfData = [];
+
+firestore()
+.collection('Airpods')
+.orderBy('id')
+.get()
+.then(querySnapshot => {
+    querySnapshot.forEach(documentSnapshot => {
+        newArrayOfData.push(documentSnapshot.data())
+    });
+}).then(testing =>{
+  this.setState({data:newArrayOfData})
+})
+
+}
+  render(navigation){
+  return (  
+    <View style={{ flex: 1, backgroundColor: colors.lightGrey2 }}>
+      <Header title="Airpods"
+        type="arrowleft"
+        Color={colors.white}
+        navigation={navigation}
+      />
+
+
+      <FlatList
+        data={this.state.data}
+        renderItem={({ item }) => (
+          
+          <View style={styles.airpodsDataStyle}>
+            <Text style={styles.airpodsDataText}> {item.title} </Text>
+            <TouchableOpacity>
+            <Icons
                   name="ios-chevron-forward"
                   color={colors.black}
                   size={30}
                 />
-              </View>
               </TouchableOpacity>
-            )
-          })
-        }
+          </View>
+          
+        )}
+      />
     </View>
   )
-}
+    }
+  }
+
+  export default AirpodsScreen
+
 
 const styles = StyleSheet.create({
   airpodsDataStyle:{
