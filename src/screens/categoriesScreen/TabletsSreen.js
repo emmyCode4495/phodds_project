@@ -3,7 +3,7 @@ import { iosData } from '../../constants/data'
 import Header from '../../components/header'
 import colors from '../../constants/Colors'
 import { useNavigation } from '@react-navigation/native'
-
+import ArrowIcon from 'react-native-vector-icons/AntDesign'
 import Icons from 'react-native-vector-icons/Ionicons'
 
 import { AuthProvider } from './src/navigation/AuthProvider';
@@ -61,12 +61,20 @@ firestore()
   render(navigation){
   return (  
     <View style={{ flex: 1, backgroundColor: colors.lightGrey2 }}>
-      <Header title="Tablets"
-        type="arrowleft"
-        Color={colors.white}
-        navigation={navigation}
-      />
-
+   <View style={styles.headerMain}>
+        <ArrowIcon 
+                  name="arrowleft"
+                  color={colors.white}
+                  size={30}
+                  style={styles.arrowIconStyle}
+                  onPress={()=> this.props.navigation.goBack()}
+              />
+        <View style={{marginLeft:50}}>
+          <Text style={styles.txtTitle}>
+            Tablets
+          </Text>
+        </View>
+      </View>
 
       <FlatList
         data={this.state.data}
@@ -104,5 +112,18 @@ const styles = StyleSheet.create({
     color:colors.black,
     fontFamily:"Poppins-Bold",
     marginBottom:15
-  }
+  },
+  headerMain:{
+    height:70,
+    padding:20,
+    marginBottom:20,
+    flexDirection:"row", 
+    backgroundColor:colors.main
+  },
+  txtTitle:{
+    color:colors.white,
+    fontSize:28,
+    fontFamily:"Poppins-Bold",
+    marginLeft:15
+}
 })

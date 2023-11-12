@@ -12,6 +12,7 @@ import colors from '../constants/Colors'
 var { height, width } = Dimensions.get('window');
 
 const Header= ({title,type,navigation,Color})=>{
+  
   return (
     <View style={styles.container}>
         <View style={styles.IconStyle}>
@@ -19,7 +20,7 @@ const Header= ({title,type,navigation,Color})=>{
                 name={type}
                 color={Color}
                 size={30}
-                onPress={()=>{navigation.goBack()}}
+                navigation = {navigation}
             />
         </View>
         <View style={styles.headerText}>

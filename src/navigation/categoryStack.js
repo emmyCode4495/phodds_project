@@ -10,6 +10,7 @@ import LaptopsScreen from '../screens/categoriesScreen/LaptopsScreen'
 import PowerbanksScreen from '../screens/categoriesScreen/PowerbanksScreen'
 import SmartWatchesScreen from '../screens/categoriesScreen/SmartWatchesScreen'
 import TabletsScreen from '../screens/categoriesScreen/TabletsSreen'
+import ItemDetails from '../screens/utilityScreens/ItemDetails'
 import AppStack from './AppStack'
 
 const catStack = createNativeStackNavigator();
@@ -31,6 +32,7 @@ export default function CategoryStack(){
             <catStack.Screen name="powerbank" component={PowerbanksScreen}/>
             <catStack.Screen name="watch" component={SmartWatchesScreen}/>
             <catStack.Screen name="tablets" component={TabletsScreen}/>
+            <catStack.Screen name="itemDetail" component={ItemDetails}/>
             
         </catStack.Navigator>
   )

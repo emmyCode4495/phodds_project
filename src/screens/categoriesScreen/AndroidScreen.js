@@ -4,6 +4,7 @@ import Header from '../../components/header'
 import colors from '../../constants/Colors'
 import { useNavigation } from '@react-navigation/native'
 
+import ArrowIcon from 'react-native-vector-icons/AntDesign'
 import Icons from 'react-native-vector-icons/Ionicons'
 
 import { AuthProvider } from './src/navigation/AuthProvider';
@@ -58,14 +59,23 @@ firestore()
 })
 
 }
-  render(navigation){
+  render(){
   return (  
     <View style={{ flex: 1, backgroundColor: colors.lightGrey2 }}>
-      <Header title="Android devices"
-        type="arrowleft"
-        Color={colors.white}
-        navigation={navigation}
-      />
+      <View style={styles.headerMain}>
+        <ArrowIcon 
+                  name="arrowleft"
+                  color={colors.white}
+                  size={30}
+                  style={styles.arrowIconStyle}
+                  onPress={()=> this.props.navigation.goBack()}
+              />
+        <View style={{marginLeft:50}}>
+          <Text style={styles.txtTitle}>
+            Android
+          </Text>
+        </View>
+      </View>
 
 
       <FlatList
@@ -105,8 +115,17 @@ const styles = StyleSheet.create({
     fontFamily:"Poppins-Bold",
     marginBottom:15
   },
-  imageStyle:{
-    width:100,
-    height:100
-  }
+  headerMain:{
+    height:70,
+    padding:20,
+    marginBottom:20,
+    flexDirection:"row", 
+    backgroundColor:colors.main
+  },
+  txtTitle:{
+    color:colors.white,
+    fontSize:28,
+    fontFamily:"Poppins-Bold",
+    marginLeft:15
+}
 })

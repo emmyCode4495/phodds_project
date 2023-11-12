@@ -1,6 +1,5 @@
-
-import RootNavigator from '../Phodds/src/navigation/RootNavigator'
-import { AuthProvider } from './src/navigation/AuthProvider';
+import RootNavigator from '../phodds_main/src/navigation/RootNavigator'
+import { AuthProvider } from '../phodds_main/src/navigation/AuthProvider';
 
 import React, { Component, useState,useEffect } from 'react';
 import {

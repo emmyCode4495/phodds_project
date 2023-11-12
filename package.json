@@ -31,6 +31,7 @@
     "react-native-select-dropdown": "^3.3.4",
     "react-native-tab-view": "^3.5.1",
     "react-native-vector-icons": "^9.2.0",
+    "react-navigation": "^5.0.0",
     "yarn": "^1.22.19"
   },
   "devDependencies": {
