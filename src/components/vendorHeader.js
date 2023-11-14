@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import {View,
     Text, 
     SafeAreaView,
-    Image,StyleSheet} from 'react-native'
+    Image,StyleSheet, TouchableOpacity} from 'react-native'
 
 import colors from "../constants/Colors";
 import EllipIcon from 'react-native-vector-icons/FontAwesome5'
@@ -11,9 +11,24 @@ import Icon from 'react-native-vector-icons/AntDesign'
 import { vendorData,TrendingData } from "../constants/data"
 import { useNavigation } from "@react-navigation/native";
 
+
+
 export default function VendorHeader({route}){
     const navigation = useNavigation()
+    const [liked, setLiked] = useState(false)
+    const [counter, setCounter] = useState(-2)
+    const [visible, setVisible] = useState(false)
+    const index = 10
    //const {id, trending}  = route.params
+
+   const likeHandler = () =>{
+    if(liked == false){
+        setVisible(true)
+    }
+
+    setLiked(!liked)
+    setCounter(index)
+}
     return(
     
         <SafeAreaView style={{backgroundColor:colors.main,paddingBottom:10}}>
@@ -30,12 +45,18 @@ export default function VendorHeader({route}){
                 style={styles.imageStyle}
             />
              <Text style={styles.vendorNameStyle}>J-tech</Text>
+       
+             <TouchableOpacity>
              <FavIcon
-                name="favorite-outline"
+                name={liked && (index == counter) ? "favorite": "favorite-outline"}
                 size={30}
                 color={colors.white}
                 style={styles.favIconStyle}
+                onPress={likeHandler}
              />
+             
+             </TouchableOpacity>
+    
                <Icon
                 name="search1"
                 size={28}
