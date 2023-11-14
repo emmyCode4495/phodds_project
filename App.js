@@ -13,6 +13,7 @@ import {
 import colors from './src/constants/Colors';
 
 import firestore from '@react-native-firebase/firestore';
+import VendorDetailScreen from './src/screens/vendorsScreens/VendorDetailScreen';
 
 
 export default function App(){
@@ -23,6 +24,7 @@ export default function App(){
          barStyle="light-content"
         backgroundColor={colors.main}/>
             <RootNavigator/>
+            {/* <VendorDetailScreen/> */}
         </SafeAreaView>
         </AuthProvider>
     )     

@@ -41,7 +41,8 @@ const carouselData = [
                     ...Vending just got easier
                 </Text>
             </View>
-            <Image source={require('../../../assets/images/asVendor.png')} style={styles.imageStyle}/>
+            <Image source={require('../../../assets/images/asVendor.png')} 
+                style={styles.imageStyle}/>
             <TouchableOpacity
                 onPress={()=>navigation.navigate("vending")}
             >

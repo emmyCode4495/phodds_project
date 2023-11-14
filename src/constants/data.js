@@ -120,7 +120,34 @@ export const TrendingData =
         id:9},       
 ];
 
+export const vendorData =
+[
 
+    {
+        vendorName: "J-Tech",
+        id:0
+     },
+     {
+        vendorName: "Ganyi's",
+        id:1
+     },
+     {
+        vendorName: "Marv-Tech",
+        id:2
+     },
+     {
+        vendorName: "Hi-Tech",
+        id:3
+     },
+     {
+      vendorName: "Op-tech",
+      id:4
+   },
+   {
+      vendorName: "Faiithy-tech",
+      id:5
+   },
+]
 export const businessCategory =
 [
     "ios",

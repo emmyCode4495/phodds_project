@@ -28,7 +28,7 @@ const [switchMode, setSwitchMode] = useState(true)
     <SafeAreaView style={styles.container}>  
       <SnackDrawerBar navigation={navigation}/>
 
-      <View style={styles.mainView}>
+      {/* <View style={styles.mainView}>
 
       <View style={{...styles.brandNewView,
         backgroundColor:switchMode?colors.main:colors.lightGrey2,
@@ -58,7 +58,7 @@ const [switchMode, setSwitchMode] = useState(true)
         </TouchableOpacity>
       </View>
       
-      </View> 
+      </View>  */}
       <View>
         <FlatList
         horizontal={false} 

@@ -14,7 +14,7 @@ import BrandNewGadgetsScreen from '../screens/utilityScreens/BrandNewGadgetsScre
 import FairlyUsedGadgetsScreen from '../screens/utilityScreens/FairlyUsedGadgetsScreen'
 import AppStack                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     from './AppStack'
 import CategoryStack from './categoryStack'
-
+import VendorDetailScreen from '../screens/vendorsScreens/VendorDetailScreen'
 import IosDataScreen from '../screens/categoriesScreen/IosDataScreen'
 import AndroidScreen from '../screens/categoriesScreen/AndroidScreen'
 import AccessoriesScreen from '../screens/categoriesScreen/AccesoriesScreen'

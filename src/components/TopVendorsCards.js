@@ -6,21 +6,111 @@ import React from 'react'
 import colors from '../constants/Colors'
 import { useNavigation } from '@react-navigation/native';
 import { widthPixel,heightPixel,pixelSizeHorizontal,pixelSizeVertical, fontPixel } from '../constants/dimensions';
+import { FlatList } from 'react-native-gesture-handler';
+import { vendorData } from '../constants/data';
+import VendorCard from './VendorCard';
+import { Screen } from 'react-native-screens';
 
 
 const TopVendorsCards = () => {
+  
 const navigation = useNavigation();
-return (
-  
+return ( 
 <View style={{...styles.mainView,flexDirection:'row'}}>    
-<ScrollView
-  horizontal={true}
-  showsHorizontalScrollIndicator={false}
->
 <View style={{...styles.container}}>
+  <FlatList
+  showsHorizontalScrollIndicator={false}
+  showsVerticalScrollIndicator={false}
+  horizontal={true}
+  data={vendorData}
+  keyExtractor={(item,index)=>index.toString()}
+  renderItem={({item,index})=>(
+//   <View>  
+//     <View style={styles.card2}>
+//     <TouchableOpacity 
+//      onPress={()=>{navigation.navigate("vendorDetail",{id:index,product:item.productName})}}
+//     >
+//        <Image
+//        source={require('../../assets/images/phodds.png')}
+//        style={styles.imageStyle}
+//        />
+//        <Text style={styles.categoryText}>J-Tech</Text>
+//     </TouchableOpacity> 
+//   </View>
+
+//   <View style={styles.card2}>
+//   <TouchableOpacity
+//     onPress={()=>navigation.navigate("vendorDetail")}
+//   >
+//        <Image
+//        source={require('../../assets/images/phodds.png')}
+//        style={styles.imageStyle}
+//        />
+//        <Text style={{...styles.categoryText,paddingLeft:10,fontSize:fontPixel(15)}}>Ganyi's</Text>
+//     </TouchableOpacity>
+//   </View>
+
+//   <View style={styles.card2}>
+//   <TouchableOpacity
+//   onPress={()=>navigation.navigate("vendorDetail")}
+//   >
+//        <Image
+//        source={require('../../assets/images/phodds.png')}
+//        style={styles.imageStyle}
+//        />
+//        <Text style={{...styles.categoryText,paddingLeft:5}}>MarvTech</Text>
+//     </TouchableOpacity>
+//   </View>
+
+// <View style={{...styles.container}}>
   
-  <View style={styles.card2}>
-    <TouchableOpacity>
+//   <View style={styles.card2}>
+//   <TouchableOpacity onPress={()=>navigation.navigate("vendorDetail")}>
+//        <Image
+//        source={require('../../assets/images/phodds.png')}
+//        style={styles.imageStyle}
+//        />
+//        <Text style={{...styles.categoryText,paddingLeft:2,fontSize:fontPixel(15)}}>L-Tech</Text>
+//     </TouchableOpacity>
+//   </View>
+
+//   <View style={styles.card2}>
+//   <TouchableOpacity
+//     onPress={()=>navigation.navigate("vendorDetail")}
+//   >
+//        <Image
+//        source={require('../../assets/images/phodds.png')}
+//        style={styles.imageStyle}
+//        />
+//        <Text style={{...styles.categoryText,paddingLeft:15,fontSize:fontPixel(15)}}>Avix</Text>
+//     </TouchableOpacity>
+//   </View>
+
+//   <View style={styles.card2}>
+//   <TouchableOpacity
+//     onPress={()=>navigation.navigate("vendorDetail")}
+//   >
+//        <Image
+//        source={require('../../assets/images/phodds.png')}
+//        style={styles.imageStyle}
+//        />
+//        <Text style={{...styles.categoryText,fontSize:fontPixel(15)}}>Op-tech</Text>
+//     </TouchableOpacity>
+//   </View>
+  
+// </View> 
+// </View>
+<VendorCard
+  vendorName={item.vendorName}
+  onPressCard={()=>{navigation.navigate("vendorDetail",{id:index,vendor:item.vendorName})}}
+  //onPressCard={()=>{navigation.navigate("vendorDetail",{screen:'HomeScreen',params:{id:id}})}}
+/>
+  )}
+  />
+  {/* <View style={styles.card2}>
+    <TouchableOpacity 
+     onPress={()=>{navigation.navigate("vendorDetail",{id:index,product:item.productName})}}
+    >
        <Image
        source={require('../../assets/images/phodds.png')}
        style={styles.imageStyle}
@@ -31,7 +121,7 @@ return (
 
   <View style={styles.card2}>
   <TouchableOpacity
-    onPress={()=>navigation.navigate("ios")}
+    onPress={()=>navigation.navigate("vendorDetail")}
   >
        <Image
        source={require('../../assets/images/phodds.png')}
@@ -43,7 +133,7 @@ return (
 
   <View style={styles.card2}>
   <TouchableOpacity
-  onPress={()=>navigation.navigate("laptops")}
+  onPress={()=>navigation.navigate("vendorDetail")}
   >
        <Image
        source={require('../../assets/images/phodds.png')}
@@ -56,7 +146,7 @@ return (
 <View style={{...styles.container}}>
   
   <View style={styles.card2}>
-  <TouchableOpacity onPress={()=>navigation.navigate("android")}>
+  <TouchableOpacity onPress={()=>navigation.navigate("vendorDetail")}>
        <Image
        source={require('../../assets/images/phodds.png')}
        style={styles.imageStyle}
@@ -67,7 +157,7 @@ return (
 
   <View style={styles.card2}>
   <TouchableOpacity
-    onPress={()=>navigation.navigate("tablets")}
+    onPress={()=>navigation.navigate("vendorDetail")}
   >
        <Image
        source={require('../../assets/images/phodds.png')}
@@ -79,21 +169,25 @@ return (
 
   <View style={styles.card2}>
   <TouchableOpacity
-    onPress={()=>navigation.navigate("accessories")}
+    onPress={()=>navigation.navigate("vendorDetail")}
   >
        <Image
        source={require('../../assets/images/phodds.png')}
        style={styles.imageStyle}
        />
-       <Text style={{...styles.categoryText,fontSize:fontPixel(15)}}>accesories</Text>
+       <Text style={{...styles.categoryText,fontSize:fontPixel(15)}}>Op-tech</Text>
     </TouchableOpacity>
   </View>
   
-</View>                            
-</ScrollView>
+</View>    */}
+{/* <ScrollView
+  horizontal={true}
+  showsHorizontalScrollIndicator={false}
+>                         
+</ScrollView> */}
 
 </View>
-
+</View>
 )
 }
 
