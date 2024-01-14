@@ -13,6 +13,7 @@ import TabletsScreen from '../screens/categoriesScreen/TabletsSreen'
 import ItemDetails from '../screens/utilityScreens/ItemDetails'
 import VendorDetailScreen from '../screens/vendorsScreens/VendorDetailScreen'
 import AppStack from './AppStack'
+import SearchScreen from '../screens/searchScreens/searchScreen'
 
 
 const catStack = createNativeStackNavigator();
@@ -36,7 +37,7 @@ export default function CategoryStack(){
             <catStack.Screen name="tablets" component={TabletsScreen}/>
             <catStack.Screen name="vendorDetail" component={VendorDetailScreen}/>
             <catStack.Screen name="itemDetail" component={ItemDetails}/>
-            
+            <catStack.Screen name="search" component={SearchScreen}/>
         </catStack.Navigator>
   )
 }

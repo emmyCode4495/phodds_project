@@ -1,14 +1,18 @@
-import { StyleSheet, Text, View,Dimensions } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View,Dimensions, TouchableWithoutFeedback } from 'react-native'
+import React, { useState } from 'react'
 import colors from '../constants/Colors'
+
 
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { TouchableOpacity } from 'react-native'
 import { TextInput } from 'react-native-gesture-handler'
+import { Modal } from 'react-native'
 
 var { height, width } = Dimensions.get('window');
 
-const SnackDrawerBar = ({navigation})=> {
+const SnackDrawerBar = ({navigation,usestate})=> {
+    const [modalVisible, setModalVisible] = useState(false)
+
   return (
     
     <View style={styles.container}>
@@ -23,18 +27,38 @@ const SnackDrawerBar = ({navigation})=> {
         </View>
 
     <View style={styles.textInputView}>
+     
         <Icon 
         name="search"
         size={25}
         style={styles.iconStyle}
         />
+    <TouchableWithoutFeedback
+    onPress={()=>{
+        setModalVisible(true)
+    }}
+    >
         <TextInput
             placeholder='what are you buying?'
             placeholderTextColor={colors.white}
             style={styles.input}
-            
+            onFocus={()=>navigation.navigate("search")}
         />
+    </TouchableWithoutFeedback>
 
+    <Modal
+    animationType="false"
+    transparent={false}
+    visible={modalVisible}
+    >
+        <View style={styles.modalView}>
+            <TouchableWithoutFeedback
+                onPress={()=>{setModalVisible(false)}}
+            >
+            <Text>This is the modal</Text>
+            </TouchableWithoutFeedback>
+        </View>
+    </Modal>
     </View>
         
     
@@ -43,6 +67,8 @@ const SnackDrawerBar = ({navigation})=> {
 }
 
 export default SnackDrawerBar
+
+
 const styles = StyleSheet.create({
     container:{
         flexDirection:'row',
@@ -92,6 +118,9 @@ const styles = StyleSheet.create({
         marginRight:10,
         marginLeft:10,
         color:colors.white
+    },
+    modalView:{
+        flex:1
     }
-
+ 
 })

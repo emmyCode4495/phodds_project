@@ -1,3 +1,5 @@
+import SplashScreen from 'react-native-splash-screen';
+
 import RootNavigator from '../phodds_main/src/navigation/RootNavigator'
 import { AuthProvider } from '../phodds_main/src/navigation/AuthProvider';
 
@@ -17,6 +19,7 @@ import VendorDetailScreen from './src/screens/vendorsScreens/VendorDetailScreen'
 
 
 export default function App(){
+SplashScreen.hide()
   return(
         <AuthProvider>
         <SafeAreaView style={{flex:1}}>

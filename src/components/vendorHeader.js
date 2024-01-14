@@ -56,13 +56,16 @@ export default function VendorHeader({route}){
              />
              
              </TouchableOpacity>
-    
+            <TouchableOpacity
+                onPress={()=>navigation.navigate("search")}
+            >
                <Icon
                 name="search1"
                 size={28}
                 color={colors.white}
                 style={styles.ellipIconStyle}
              />
+             </TouchableOpacity>
              <EllipIcon
                 name="ellipsis-v"
                 size={28}
