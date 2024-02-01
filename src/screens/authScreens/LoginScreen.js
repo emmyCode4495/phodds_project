@@ -32,10 +32,36 @@ function LoginScreen({navigation}) {
 
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
+  
 
-  const {login, googlelogin} = useContext(AuthContext)
+  const {login, googlelogin, biometryLogin} = useContext(AuthContext)
+  
+ 
 
+// useEffect(() =>{
+//  handleBiometric();
+// });
 
+// const handleBiometric = ()=>  {
+//   TouchID.isSupported(optionalConfigObject).then(biometryType=>{
+//     if (biometryType === 'FaceID') {
+//       console.log('FaceID is supported.');
+//   } else {
+//       console.log('TouchID is supported.');
+//       TouchID.authenticate('',optionalConfigObject).then((success) => {
+//         console.log('Success', success);
+//         setIsAuth(succees)
+//       }).catch((err)=>{
+//         console.log('Error', err)
+//       }) 
+//   }
+// })
+// .catch(error => {
+//   // Failure code
+//   console.log(error);
+// });
+
+// }
   return (
      
     <SafeAreaView style={styles.view1}>
@@ -153,10 +179,12 @@ function LoginScreen({navigation}) {
             {
                Platform.OS === "ios" ? <></>:
               <View style={styles.biometricStyle}>
+                <TouchableOpacity onPress={biometryLogin}>
               <PhoneIcons
               name="fingerprint"
               color={colors.main}
               size={50}/> 
+              </TouchableOpacity>
               <Text style={styles.biometrics}>Fingerprint Login</Text>
               </View>  
             }

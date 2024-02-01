@@ -2,7 +2,7 @@ import React, { createContext, useState,useEffect } from "react";
 import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 
 import auth from '@react-native-firebase/auth'
-
+import TouchID from 'react-native-touch-id'
 export const AuthContext = createContext();
 
 
@@ -14,7 +14,22 @@ export const AuthProvider = ({children}) => {
     })
   }, [])
 
+  const optionalConfigObject = {
+    title: 'Authentication Required', // Android
+    imageColor: '#e00606', // Android
+    imageErrorColor: '#ff0000', // Android
+    sensorDescription: 'Touch sensor', // Android
+    sensorErrorDescription: 'Failed', // Android
+    cancelText: 'Cancel', // Android
+    fallbackLabel: 'Show Passcode', // iOS (if empty, then label is hidden)
+    unifiedErrors: false, // use unified error messages (default false)
+    passcodeFallback: false, // iOS - allows the device to fall back to using the passcode, if faceid/touch is not available. this does not mean that if touchid/faceid fails the first few times it will revert to passcode, rather that if the former are not enrolled, then it will use the passcode.
+  };
+
+
     const [user, setUser] = useState(null)
+    const [isAuth, setIsAuth] = useState(false)
+
     return(
     <AuthContext.Provider
     value={{
@@ -68,7 +83,29 @@ export const AuthProvider = ({children}) => {
                 console.log(error)
               }
             }
-          }
+          },
+          biometryLogin: async () =>{
+              TouchID.isSupported(optionalConfigObject).then(biometryType=>{
+                if (biometryType === 'FaceID') {
+                  console.log('FaceID is supported.');
+              } else {
+                  console.log('TouchID is supported.');
+                  TouchID.authenticate('',optionalConfigObject).then((success) => {
+                   if (success){
+                    onLoginwithFingerprint()
+                   }
+                    setIsAuth(user)
+                  }).catch((err)=>{
+                    console.log('Error', err)
+                  }) 
+              }
+            })
+            .catch(error => {
+              // Failure code
+              console.log(error);
+            });
+            
+            }
     }}>
         {children}
     </AuthContext.Provider>

@@ -4,10 +4,11 @@ import { FlatList,
         Text, 
         View,
         ImageBackground,
+      Image,
       TouchableOpacity,
       TextInput } from 'react-native'
 import React from 'react'
-import { TrendingData,specificationData } from '../../constants/data'
+import { TrendingData,FeedBackData, vendorData } from '../../constants/data'
 import colors from '../../constants/Colors'
 import ItemDetailHeader from '../../components/ItemDetailHeader'
 import ItemDetailsCard from '../../components/ItemDetailsCard'
@@ -16,22 +17,25 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import Call from 'react-native-vector-icons/Entypo'
 
 import { fontPixel,heightPixel, widthPixel,pixelSizeHorizontal,pixelSizeVertical } from '../../constants/dimensions'
+import { color } from 'react-native-elements/dist/helpers'
+import ReviewReactions from '../../components/ReviewReactions'
+
 
 export default function ItemDetails({navigation,route}) {
 
     const {id, trending}  = route.params
 
   return (
-    <View style={{backgroundColor:colors.lightGrey2}}>
+    <View style={{backgroundColor:colors.lightGrey2, flex:1}}>
    
         <ItemDetailHeader title="Details" 
         type="arrowleft" 
         Color={colors.white}
         navigation={navigation}
         />
-   
-
-    <ScrollView>
+    <ScrollView 
+   contentContainerStyle={{flexGrow:1}}
+    >
 
         <View>
           <ImageBackground
@@ -139,11 +143,11 @@ export default function ItemDetails({navigation,route}) {
           </View>
 
           <View style={styles.itemMajorDetail1}>
+            <View style={{marginRight:15, marginLeft:15, justifyContent:"center"}}>
 
-          <View style={styles.specsView}>
-
-            <View>
-            <Text style={{color:colors.main, marginRight:40}}>{TrendingData[id].usedState}</Text>
+            <View style={styles.specsView}>
+            <View style={{marginBottom:14, marginRight:15,marginLeft:9}}>
+            <Text style={{color:colors.main, marginRight:20}}>{TrendingData[id].usedState}</Text>
             <Text style={{color:colors.black}}>condition</Text>
             </View>
 
@@ -151,60 +155,131 @@ export default function ItemDetails({navigation,route}) {
             <Text style={{color:colors.main}}>{TrendingData[id].specificationData.Brand}</Text>
             <Text style={{color:colors.black}}>brand</Text>
             </View>
-          </View>
+            </View>
+          
+          <View style={styles.specsView1}>
 
-          <View style={styles.specsView}>
-            <View>
+            <View style={{marginBottom:14, marginRight:15,marginLeft:9}}>
             <Text style={{color:colors.main}}>{TrendingData[id].specificationData.Model}</Text>
+            <View style={{alignItems:"center"}}>
             <Text style={{color:colors.black}}>Model</Text>
             </View>
-
-            <View>
-            <Text style={{color:colors.main}}>{TrendingData[id].specificationData.secondCondition}</Text>
-            <Text style={{color:colors.black}}>Second Condition</Text>
             </View>
-          </View>
 
-          <View style={styles.specsView}>
             <View>
             <Text style={{color:colors.main}}>{TrendingData[id].specificationData.Sim}</Text>
+            <View style={{alignItems:"center"}}>
             <Text style={{color:colors.black}}>Sim</Text>
             </View>
+            </View>
 
-            <View>
+          </View>
+
+          <View style={styles.specsView1}>
+            <View style={{marginBottom:14, marginRight:15,marginLeft:9}}>
+            <View style={{alignItems:"center"}}>
             <Text style={{color:colors.main}}>{TrendingData[id].specificationData.displayType}</Text>
+            </View>
+            <View style={{alignItems:"center"}}>
             <Text style={{color:colors.black}}>Display Type</Text>
             </View>
-        </View>
-
-        
-
-        <View style={styles.specsView}>
-
+            </View>
             <View>
+            <View style={{alignItems:"center"}}>
             <Text style={{color:colors.main}}>{TrendingData[id].specificationData.internalStorage}</Text>
+            </View>
+            <View style={{alignItems:"center"}}>
             <Text style={{color:colors.black}}>internal Storage</Text>
             </View>
-      
-            <View>
+            </View>
+      </View>
+
+      <View style={styles.specsView1}>
+            <View style={{marginBottom:14, marginRight:15,marginLeft:12}}>
             <Text style={{color:colors.main}}>{TrendingData[id].specificationData.CardSlot}</Text>
             <Text style={{color:colors.black}}>Cards</Text>
             </View>
-
-        </View>
-
-        <View style={styles.specsView}>
             <View>
             <Text style={{color:colors.main}}>{TrendingData[id].specificationData.screenSize}</Text>
+            <View style={{alignItems:"center"}}>
             <Text style={{color:colors.black}}>screenSize</Text>
             </View>
-                
-            <View>
+            </View>
+      </View>
+ 
+      <View style={styles.specsView1}>
+            <View style={{marginBottom:14, marginRight:15,marginLeft:5}}>
             <Text style={{color:colors.main}}>{TrendingData[id].specificationData.resolution}</Text>
+            <View style={{alignItems:"center"}}>
             <Text style={{color:colors.black}}>Resolution</Text>
             </View>
-        </View>
+            </View>
 
+            <View>
+            <View style={{alignItems:"center"}}>
+            <Text style={{color:colors.main}}>{TrendingData[id].specificationData.color}</Text>
+            </View>
+            <Text style={{color:colors.black}}>Device Colour</Text>
+            </View>
+       </View>
+          </View>
+          </View>
+
+
+          <View style={styles.offerViewDetail}>
+            <TouchableOpacity>
+            <View style={styles.offerView}>
+            <View>
+              <Icon 
+              name="message"
+              color={colors.main}
+              size={30}
+              style={styles.IconStyle}
+              />
+            </View>
+            <View>
+              <Text style={{color:colors.main,fontSize:18, marginTop:15}}>Make an offer</Text>
+            </View>
+            </View>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.itemMajorDetail}> 
+          <View style={styles.companyNameView}>
+          <View style={styles.companyImageView}>
+            <Image
+            source={{uri:vendorData[id].vendorImage}} 
+            style={{width: 40, height:40, borderRadius:50}}
+            />
+          </View>
+            <View style={styles.companyText}>
+              <Text style={{color:colors.black, fontFamily:"Roboto-Regular", fontSize: 20}}>
+                {vendorData[id].vendorName}
+              </Text>
+              <Text style={{color:colors.darkGrey, fontWeight:"bold"}}>
+                {vendorData[id].lastActive}
+              </Text>
+            </View>
+            </View>
+            <View style={{marginLeft:20, marginTop:10, marginBottom:10}}>
+              <Text style={{color:colors.main, fontFamily:"Poppins-Bold"}}>
+                Seller Reviews
+              </Text>
+            </View>
+            <View style={styles.ReviewSectionStyle}>
+            <View style={styles.iconLocationView}>
+            <Image
+            source={{uri:FeedBackData[id].profilePics}}
+            style={{width: 30, height:30, borderRadius:50}}
+            />
+            <Text style={{marginRight:10, color:colors.black, marginTop:8, marginLeft:5, fontWeight:"bold"}}>{FeedBackData[id].userName}</Text>
+          </View>
+          <View style={{marginLeft:15,marginBottom:10}}>
+            <Text style={{color:colors.black,letterSpacing:0.5}}>
+              {FeedBackData[id].feedback}
+            </Text>
+          </View>
+          </View>
+          <ReviewReactions/>
           </View>
     </ScrollView>
 
@@ -254,9 +329,9 @@ const styles = StyleSheet.create({
     backgroundColor:colors.white,
     maxWidth:"100%",
     height:Platform.OS === 'ios'?heightPixel(300):heightPixel(300),
-    marginTop:5,
-    marginLeft:10,
-    marginRight:10,
+    marginTop:10,
+    marginLeft:12,
+    marginRight:12,
     padding:10
   },
 
@@ -390,6 +465,60 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     marginRight:10,
     marginLeft:10,
-    justifyContent:'space-around'
+    marginBottom:5,
+    justifyContent:'space-between'
+  },
+  specsView1:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    marginBottom:5,
+  },
+  offerView:{
+    flexDirection:"row",
+    justifyContent:"center",
+    alignContent:"center",
+    borderWidth:1,
+    borderColor:colors.main,
+    height:Platform.OS === 'ios'?heightPixel(300):heightPixel(60),
+    borderRadius:30,
+    marginRight:10,
+    marginTop:10,
+    marginLeft:10,
+    marginBottom:10
+  },
+  offerViewDetail:{
+    borderWidth:1,
+    borderColor:colors.white,
+    backgroundColor:colors.white,
+    borderRadius:30,
+    maxWidth:"100%",
+    height:Platform.OS === 'ios'?heightPixel(300):heightPixel(80),
+    marginTop:10,
+    marginLeft:12,
+    marginRight:12,
+  },
+  IconStyle:{
+    marginTop:12,
+    marginRight:10
+  },
+  companyNameView:{
+    flexDirection:"row",
+
+  },
+  companyImageView:{
+    marginLeft:15,
+    marginRight: 10,
+    marginTop:5
+  },
+  companyText:{
+    marginTop:8,
+     marginBottom:0
+  },
+  ReviewSectionStyle:{
+    backgroundColor:colors.lightGrey,
+    borderBottomRightRadius: 20,
+    borderTopLeftRadius:20,
+    height:Platform.OS === 'ios'?heightPixel(300):heightPixel(120),
+    padding:10
   }
 })

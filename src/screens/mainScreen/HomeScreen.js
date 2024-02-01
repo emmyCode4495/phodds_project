@@ -59,11 +59,12 @@ const [switchMode, setSwitchMode] = useState(true)
       </View>
       
       </View>  */}
-      <View>
+      <View style={{flex:1, padding:10}}>
         <FlatList
         horizontal={false} 
           data={TrendingData}
           keyExtractor={(item,index)=>index.toString()}
+          showsVerticalScrollIndicator={false}
           ListHeaderComponent={() =>(
             <>          
               <View style={styles.categoryViewStyle}>
@@ -74,10 +75,11 @@ const [switchMode, setSwitchMode] = useState(true)
               <View style={styles.categoryViewStyle}>
                   <Text style={styles.categoryStyle}>Top Vendors</Text>
                </View>
+               
                 <ScrollView>
                     <TopVendorsCards/>
                 </ScrollView>
-
+               
                 <View style={styles.categoryViewStyle}>
                   <Text style={styles.categoryStyle}>Trending</Text>
                  </View>
