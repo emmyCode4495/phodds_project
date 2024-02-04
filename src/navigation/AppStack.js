@@ -16,12 +16,14 @@ import VendorIcon from 'react-native-vector-icons/FontAwesome5'
 import UserIcon from 'react-native-vector-icons/FontAwesome'
 import AdminIcon from 'react-native-vector-icons/MaterialIcons'
 import EntypoIcon from 'react-native-vector-icons/Entypo'
+import SelectIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 //The navigation imports
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import MenuTabs from './MenuTabs';
 import AdminScreen from '../screens/utilityScreens/AdminScreen';
 import CategoryStack from './categoryStack';
+import ListOfVendorsScreen from '../components/ListOfVendorsScreen';
 
 
 const Drawer = createDrawerNavigator();
@@ -54,6 +56,13 @@ const AppStack = ()=> {
             options={{
               drawerIcon:({color})=>(
                 <VendorIcon name="handshake" size={24} color={color}/>
+              )
+            }}
+            />
+            <Drawer.Screen name="Select a Vendor" component={ListOfVendorsScreen}
+            options={{
+              drawerIcon:({color})=>(
+                <SelectIcon name="select-search" size={24} color={color}/>
               )
             }}
             />

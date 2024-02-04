@@ -5,10 +5,10 @@ import colors from "../../constants/Colors";
 import VendorHomeComponent from "../../components/vendorHomeComponent";
 
 const VendorDetailScreen= ({navigation,route}) =>{
-    const {id, trending}  = route.params
+    //const {id, trending}  = route.params
     return(
         <SafeAreaView style={{flex:1, backgroundColor:colors.white}}>
-            <VendorHeader id={id}/>
+            <VendorHeader/>
             <VendorHomeComponent/>
         </SafeAreaView>
     )

@@ -515,7 +515,7 @@ const styles = StyleSheet.create({
      marginBottom:0
   },
   ReviewSectionStyle:{
-    backgroundColor:colors.lightGrey,
+    backgroundColor:colors.lightGrey2,
     borderBottomRightRadius: 20,
     borderTopLeftRadius:20,
     height:Platform.OS === 'ios'?heightPixel(300):heightPixel(120),

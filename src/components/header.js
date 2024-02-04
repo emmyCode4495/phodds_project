@@ -1,4 +1,4 @@
-import { View, Text,StyleSheet,Dimensions  } from 'react-native'
+import { View, Text,StyleSheet,Dimensions, TouchableOpacity  } from 'react-native'
 import React from 'react'
 
 
@@ -16,12 +16,14 @@ const Header= ({title,type,navigation,Color})=>{
   return (
     <View style={styles.container}>
         <View style={styles.IconStyle}>
+
             <ArrowIcon 
                 name={type}
                 color={Color}
                 size={30}
                 navigation = {navigation}
             />
+        
         </View>
         <View style={styles.headerText}>
             <Text style={styles.txtTitle}>{title}</Text>    

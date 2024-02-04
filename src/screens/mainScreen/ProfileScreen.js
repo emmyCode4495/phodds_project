@@ -3,10 +3,7 @@ import colors from '../../constants/Colors'
 import React from 'react'
 import Icon from 'react-native-vector-icons/AntDesign'
 import ClientIcon from 'react-native-vector-icons/Foundation'
-import FactorIcon from 'react-native-vector-icons/MaterialCommunityIcons'
-import VerifyIcon from 'react-native-vector-icons/MaterialIcons'
-import DeleteIcon from 'react-native-vector-icons/Ionicons'
-import Header from '../../components/header'
+
 
 import UserIcon from 'react-native-vector-icons/FontAwesome'
 import { TrendingData } from '../../constants/data'
@@ -114,7 +111,7 @@ const ProfileScreen = ({navigation}) => {
 
           </View>
 
-          <View style={styles.securityInfoView}>
+          {/* <View style={styles.securityInfoView}>
             <Text style={styles.securityInfoText}>security</Text>
           </View>
 
@@ -175,7 +172,7 @@ const ProfileScreen = ({navigation}) => {
               <Text style={styles.deleteText}>delete account</Text>
           </View>
           </TouchableOpacity>
-          </View>
+          </View> */}
 
           <View style={{borderTopWidth:1,
                         borderColor:colors.lightGrey,
